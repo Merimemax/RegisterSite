@@ -1,8 +1,22 @@
 package edu.mum.registar.domain;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+
+@Entity
 public class Credential {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="user_id")
+    private Long id;
+
+    @NotEmpty(message = "user Name can be empty")
     private String userName;
+
+    @NotEmpty(message = "user Name can be empty")
     private String password;
+
     private Role role;
 
     public String getUserName() {
