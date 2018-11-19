@@ -3,14 +3,13 @@ package edu.mum.registar.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 
 @Entity
 public class Course {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-    private Long id;
+    private long id;
     private String courseCode;
     private String courseName;
     private Course prerequiste;
