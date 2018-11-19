@@ -1,6 +1,13 @@
 package edu.mum.registar.repository;
 
+import org.springframework.data.repository.CrudRepository;
 
-public interface CourseRepository {
+import edu.mum.registar.domain.Course;
+
+
+public interface CourseRepository extends CrudRepository<Course, Long> 
+{
+	
+	
 
 }

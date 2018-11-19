@@ -1,7 +1,15 @@
 package edu.mum.registar.domain;
 
-public class Course {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
+import org.springframework.data.annotation.Id;
+
+@Entity
+public class Course {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
     private String courseCode;
     private String courseName;
