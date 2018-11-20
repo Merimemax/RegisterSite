@@ -10,8 +10,12 @@ public class Faculty {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "faculty_id")
+<<<<<<< HEAD
 
     private Long id;
+=======
+    private long id;
+>>>>>>> 16716e000d1db76c2b4d2f3c62b3dd466a3b4e3e
     private String firstName;
     private String lastName;
     private LocalDate dateOfBirth;
@@ -20,7 +24,7 @@ public class Faculty {
     @ManyToMany
     private List<Course> courses;
 
-    @OneToMany
+    @OneToMany(mappedBy = "adviser")
     private List<Student> advicees;
 
     public Faculty() {

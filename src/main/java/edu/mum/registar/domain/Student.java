@@ -12,7 +12,7 @@ public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private long id;
     private int registrationNumber;
     private String firstName;
     private String lastName;

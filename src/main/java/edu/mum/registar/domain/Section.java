@@ -1,9 +1,18 @@
 package edu.mum.registar.domain;
 
+import javax.persistence.*;
+
+@Entity
 public class Section {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String sectionNo;
+
+    @OneToOne
     private Course course;
+
+    @OneToOne
     private Faculty proffessor;
 
     public Long getId() {

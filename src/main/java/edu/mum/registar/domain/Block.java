@@ -1,10 +1,16 @@
 package edu.mum.registar.domain;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
 public class Block {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String blockName;
+
+    @ManyToMany
     private List<Section> sections;
 
     public Long getId() {
