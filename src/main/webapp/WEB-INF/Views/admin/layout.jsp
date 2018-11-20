@@ -13,10 +13,13 @@
 		<meta name="keywords" content="google nexus 7 menu, css transitions, sidebar, side menu, slide out menu" />
 		<meta name="author" content="Codrops" />
 				
-		<link rel="stylesheet" type="text/css" href="css/adminCss/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="css/adminCss/demo.css" />
-		<link rel="stylesheet" type="text/css" href="css/adminCss/component.css" />
-		<script src="js/adminJs/modernizr.custom.js"></script>
+		<link rel="stylesheet" type="text/css"href="<spring:url value="/css/adminCss/normalize.css" />"/>
+		 <link rel="stylesheet" type="text/css" href="<spring:url value="/css/adminCss/demo.css" />"/>
+		<link rel="stylesheet" type="text/css" href="<spring:url value="/css/adminCss/component.css" />" />
+		
+			 <spring:url value="/js/adminJs/modernizr.custom.js" var="jqueryJsf" />
+		 <script src="${jqueryJsf}"></script>
+		<!-- <script src="js/adminJs/modernizr.custom.js"></script> -->
 </head>
 <body>
 <div class="container">
@@ -51,17 +54,26 @@
 						</div><!-- /gn-scroller -->
 					</nav>
 				</li>
-				<li><a href="<spring:url value="/admin/section" />">Codrops</a></li>
+				<li><a href="<spring:url value="/admin" />">Codrops</a></li>
 				<li><a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Development/HeaderEffects/"><span>Previous Demo</span></a></li>
 				<li><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=16030"><span>Back to the Codrops Article</span></a></li>
 			</ul>
-			<header>
+		<header>
 				<h1>Google Nexus Website Menu <span>A sidebar menu as seen on the <a href="http://www.google.com/nexus/index.html">Google Nexus 7</a> page</span></h1>	
-			</header> 
+			</header>  
+			<jsp:include page="${param.content}.jsp" flush="true"/>
 		</div><!-- /container -->
-		<jsp:include page="/WEB-INF/Views/admin/${param.content}.jsp"/>
-		<script src="js/adminJs/classie.js"></script>
-		<script src="js/adminJs/gnmenu.js"></script>
+		
+		<spring:url value="/js/adminJs/classie.js" var="jqueryJs" />
+		 <spring:url value="/js/adminJs/gnmenu.js" var="jqueryJs2" />
+		 <script src="${jqueryJs}"></script>
+		 <script src="${jqueryJs2}"></script>
+<%-- 		
+ <script src="${openid-jquery_url}" type="text/javascript">
+	 <script src="${openid-jquery_url}"></script>
+			<spring:url value="/js/adminJs/gnmenu.js" var="openid-jquery_url2" />
+		<script src="${openid-jquery_url2}" type="text/javascript">
+		<script src="${openid-jquery_url2}"></script> --%>
 		<script>
 			new gnMenu( document.getElementById( 'gn-menu' ) );
 		</script>
