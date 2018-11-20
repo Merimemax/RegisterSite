@@ -2,5 +2,5 @@ package edu.mum.registar.domain;
 
 public enum Role {
 
-    Admin, Faculty
+    Admin, Faculty, Student
 }
