@@ -39,7 +39,7 @@ public String saveCourse(@ModelAttribute("Course") Course course, RedirectAttrib
 	redirect.addFlashAttribute("course",course);
 	System.out.println("saved");
 	
-	return "redirect:course/courseList";
+	return "redirect:courseList";
 	}
 
 
