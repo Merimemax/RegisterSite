@@ -17,9 +17,7 @@ public class Student {
     private LocalDate dateOfBirth;
     private LocalDate entryDate;
     private String email;
-
-    @ManyToOne
-    @JoinColumn(name = "faculty_id")
+    @Column(name = "faculty_id")
     private Faculty adviser;
 
     @ManyToMany
