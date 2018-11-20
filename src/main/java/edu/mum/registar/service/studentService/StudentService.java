@@ -10,5 +10,6 @@ public interface StudentService {
 
     public List<Student> findAllStudent();
 
+    public List<Student> findAllStudentByFacultyId(String faculty_id);
 
 }
