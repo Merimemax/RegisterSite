@@ -19,6 +19,7 @@ public class Student {
     private LocalDate dateOfBirth;
     private LocalDate entryDate;
     private String email;
+    
     private Faculty adviser;
     private List<Course> enrolledCourse;
     private List<Course> waiveredCourse;
