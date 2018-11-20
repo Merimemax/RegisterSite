@@ -1,16 +1,10 @@
 <%--
   Created by IntelliJ IDEA.
-  User: melathadgu
+  User: merih
   Date: 11/19/18
-  Time: 4:03 PM
+  Time: 11:17 AM
   To change this template use File | Settings | File Templates.
 --%>
-<%--<%@ page contentType="text/html;charset=UTF-8" language="java" %>--%>
-<%--<html>--%>
-    <%--<body>--%>
-<%--<p>hello this is login</p>--%>
-<%--</body>--%>
-<%--</html>--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri = "http://www.springframework.org/tags/form" prefix = "form"%>
 <html>
@@ -25,10 +19,32 @@
 </head>
 <body>
 
-<h1>HELLO </h1>
+<h1> </h1>
 
-
-
+<form:form modelAttribute="credentials">
+    <h3>Please Log In</h3>
+    <form:errors path="*" cssStyle="color: #f00;"/>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <form:input type="text" path="userName"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+        <div>
+            <form:errors path="userName" cssStyle="color: #f00;"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <form:input type="password" path="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
+        <div>
+            <form:errors path="password" cssStyle="color: #f00;"/>
+        </div>
+    </div>
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form:form>
 
 </body>
 </html>
+

@@ -11,4 +11,6 @@ public interface StudentRepository extends CrudRepository<Student, Long> {
 
     @Query("SELECT s FROM Student s WHERE s.email = :email")
     Student findStudentByEmail(@Param("email") String email);
+
+
 }

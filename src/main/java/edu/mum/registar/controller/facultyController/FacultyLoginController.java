@@ -18,19 +18,20 @@ import javax.validation.Valid;
 public class FacultyLoginController {
 
     @GetMapping()
-    public String login(@ModelAttribute ("creden")Credential credential){
+    public String login(@ModelAttribute ("credentials")Credential credential){
         return "faculty/login";
     }
 
-    @PostMapping("/faculty")
-    public String submitLogInForm(@Valid @ModelAttribute ("creden")Credential credential,BindingResult br, RedirectAttributes redirectAttributes) {
+    @PostMapping()
+    public String submitLogInForm(@Valid @ModelAttribute ("credentials") Credential credential,BindingResult br, RedirectAttributes redirectAttributes) {
        if (br.hasErrors()) {
            return "faculty/login";
       }
 
        String email=credential.getUserName();
+       String Password=credential.getPassword();
         redirectAttributes.addFlashAttribute(credential);
-        return "redirect:/facultyHome";
+        return "redirect:/faculty/facultyHome";
     }
     @GetMapping("/facultyHome")
     public String success(){

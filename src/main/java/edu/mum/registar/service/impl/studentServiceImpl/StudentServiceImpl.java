@@ -14,8 +14,10 @@ import javax.transaction.Transactional;
 public class StudentServiceImpl implements StudentService {
     @Autowired
     StudentRepository studentRepository;
+
     @Override
     public Student findStudentByEmail(String email) {
         return studentRepository.findStudentByEmail(email);
     }
 }
+

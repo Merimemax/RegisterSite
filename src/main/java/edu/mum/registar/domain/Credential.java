@@ -11,10 +11,10 @@ public class Credential {
     @Column(name="user_id")
     private Long id;
 
-    @NotEmpty(message = "user Name can be empty")
+    @NotEmpty(message = "User Name can be empty")
     private String userName;
 
-    @NotEmpty(message = "user Name can be empty")
+    @NotEmpty(message = "Password can be empty")
     private String password;
 
     private Role role;
