@@ -9,6 +9,8 @@
 <title>Course Registration Form </title>
 </head>
 <body>
+
+
 <div>
 <h3>Save Course </h3>
 <form:form action="saveCourse" modelAttribute="Course" method="post">
@@ -16,6 +18,7 @@
 	<tbody>
 	<tr>
 		<td><form:input type ="hidden" path="id"/></td>
+		<form:errors path="*" cssClass="alert alert-danger" element="div"/>
 	</tr>
 <tr>
 <td> <label>Course Code:	</label></td>
