@@ -30,3 +30,4 @@ public class StudentServiceImpl implements StudentService {
         return (List<Student>) studentRepository.findStudentsByFacultyId(faculty_id);
     }
 }
+

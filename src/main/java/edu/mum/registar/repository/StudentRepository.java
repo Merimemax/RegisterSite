@@ -16,4 +16,5 @@ public interface StudentRepository extends CrudRepository<Student, Long> {
 
     @Query("SELECT s FROM Student s where s.adviser = :faculty_id")
     List<Student> findStudentsByFacultyId(@Param("faculty_id") String faculty_id);
+
 }

@@ -1,5 +1,4 @@
 package edu.mum.registar.domain;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
