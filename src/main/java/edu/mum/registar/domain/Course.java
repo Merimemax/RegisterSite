@@ -3,24 +3,27 @@ package edu.mum.registar.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Course {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-    private Long id;
+    private long id;
     private String courseCode;
     private String courseName;
+    @OneToOne
+    @JoinColumn(name="prerequiste_id")
     private Course prerequiste;
     private int credit;
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
