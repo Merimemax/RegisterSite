@@ -1,10 +1,8 @@
 package edu.mum.registar.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,11 +17,25 @@ public class Student {
     private LocalDate dateOfBirth;
     private LocalDate entryDate;
     private String email;
+<<<<<<< HEAD
     
+=======
+
+    @ManyToOne
+    @JoinColumn(name = "faculty_id")
+>>>>>>> 07ac10195377b7ac36736b6be11fc3b12f7abcf8
     private Faculty adviser;
+
+    @ManyToMany
     private List<Course> enrolledCourse;
+
+    @ManyToMany
     private List<Course> waiveredCourse;
 
+    public Student() {
+        enrolledCourse = new ArrayList<>();
+        waiveredCourse = new ArrayList<>();
+    }
 
     public Long getId() {
         return id;

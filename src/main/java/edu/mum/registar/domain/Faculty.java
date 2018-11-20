@@ -1,17 +1,32 @@
 package edu.mum.registar.domain;
 
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Faculty {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "faculty_id")
     private Long id;
     private String firstName;
     private String lastName;
     private LocalDate dateOfBirth;
     private String email;
+
+    @ManyToMany
     private List<Course> courses;
+
+    @OneToMany
     private List<Student> advicees;
+
+    public Faculty() {
+        courses = new ArrayList<>();
+        advicees = new ArrayList<>();
+    }
 
     public Long getId() {
         return id;
