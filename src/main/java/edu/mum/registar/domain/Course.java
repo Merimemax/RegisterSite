@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Course {
@@ -13,14 +15,16 @@ public class Course {
     private long id;
     private String courseCode;
     private String courseName;
+    @OneToOne
+    @JoinColumn(name="prerequiste_id")
     private Course prerequiste;
     private int credit;
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
