@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +51,7 @@
 						</div><!-- /gn-scroller -->
 					</nav>
 				</li>
-				<li><a href="http://tympanus.net/codrops">Codrops</a></li>
+				<li><a href="<spring:url value="/admin/section" />">Codrops</a></li>
 				<li><a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Development/HeaderEffects/"><span>Previous Demo</span></a></li>
 				<li><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=16030"><span>Back to the Codrops Article</span></a></li>
 			</ul>
@@ -57,6 +59,7 @@
 				<h1>Google Nexus Website Menu <span>A sidebar menu as seen on the <a href="http://www.google.com/nexus/index.html">Google Nexus 7</a> page</span></h1>	
 			</header> 
 		</div><!-- /container -->
+		<jsp:include page="/WEB-INF/Views/admin/${param.content}.jsp"/>
 		<script src="js/adminJs/classie.js"></script>
 		<script src="js/adminJs/gnmenu.js"></script>
 		<script>
