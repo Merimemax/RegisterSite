@@ -3,12 +3,19 @@ package edu.mum.registar.controller.adminController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@Controller
+@Controller("/admin")
 public class HomeController {
-	@GetMapping("/admin")
+	@GetMapping
 	public String displayHome() {
 		
 		return "/admin/layout";
 	}
-
+	
+	@GetMapping("/admin/section")
+	public String displaySection() {
+		
+		return "/admin/section";
+	}
+	
+	
 }
