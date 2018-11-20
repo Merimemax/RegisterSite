@@ -1,10 +1,15 @@
 package edu.mum.registar.domain;
 
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Student {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private int registrationNumber;
     private String firstName;
@@ -12,10 +17,21 @@ public class Student {
     private LocalDate dateOfBirth;
     private LocalDate entryDate;
     private String email;
+
+    @ManyToOne
+    @JoinColumn(name = "faculty_id")
     private Faculty adviser;
+
+    @ManyToMany
     private List<Course> enrolledCourse;
+
+    @ManyToMany
     private List<Course> waiveredCourse;
 
+    public Student() {
+        enrolledCourse = new ArrayList<>();
+        waiveredCourse = new ArrayList<>();
+    }
 
     public Long getId() {
         return id;

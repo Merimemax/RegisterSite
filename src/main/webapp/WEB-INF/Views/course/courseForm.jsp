@@ -10,22 +10,41 @@
 </head>
 <body>
 <div>
-
+<h3>Save Course </h3>
 <form:form action="saveCourse" modelAttribute="Course" method="post">
+<table>
+	<tbody>
+	<tr>
+		<td><form:input type ="hidden" path="id"/></td>
+	</tr>
+<tr>
+<td> <label>Course Code:	</label></td>
+<td><form:input path="courseCode"/></td>
+</tr>
+
+<tr>
+<td> <label>Course Name:	</label></td>
+<td><form:input path="courseName"/></td>
+</tr>
+
+<tr>
+<td> <label> Pre_Requiste Course:	</label></td>
+<td><form:input path ="prerequiste"/> </td>
+</tr>
+
+<tr>
+<td> <label> Course Credit:	</label></td>
+<td><form:input path="credit"/></td>
+</tr>
+
+<tr>
+<td><input type="submit" value="save"/></td>
+</tr>
 
 
-<form:input path="id"/>
-<form:input path="courseCode"/>
-<form:input path="courseName"/>
-<form:input path ="prerequiste"/> 
-<form:input path="credit"/>
-
-<input type="submit" value="save"/>
-
+</tbody>
+</table>
 </form:form>
-
-
-
 </div>
 
 
