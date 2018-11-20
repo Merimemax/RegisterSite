@@ -17,13 +17,9 @@ public class Student {
     private LocalDate dateOfBirth;
     private LocalDate entryDate;
     private String email;
-<<<<<<< HEAD
-    
-=======
 
     @ManyToOne
     @JoinColumn(name = "faculty_id")
->>>>>>> 07ac10195377b7ac36736b6be11fc3b12f7abcf8
     private Faculty adviser;
 
     @ManyToMany
