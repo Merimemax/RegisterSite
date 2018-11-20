@@ -11,7 +11,7 @@ public class Faculty {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "faculty_id")
-    private Long id;
+    private long id;
     private String firstName;
     private String lastName;
     private LocalDate dateOfBirth;

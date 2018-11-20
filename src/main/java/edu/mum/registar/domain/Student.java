@@ -10,14 +10,16 @@ public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private long id;
     private int registrationNumber;
     private String firstName;
     private String lastName;
     private LocalDate dateOfBirth;
     private LocalDate entryDate;
     private String email;
-    @Column(name = "faculty_id")
+
+    @ManyToOne
+    @JoinColumn(name = "faculty_id")
     private Faculty adviser;
 
     @ManyToMany
