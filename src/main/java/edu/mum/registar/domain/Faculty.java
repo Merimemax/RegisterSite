@@ -20,7 +20,7 @@ public class Faculty {
     @ManyToMany
     private List<Course> courses;
 
-    @OneToMany
+    @OneToMany(mappedBy = "adviser")
     private List<Student> advicees;
 
     public Faculty() {
