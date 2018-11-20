@@ -6,19 +6,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+
+@Table(name = "students")
 public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private long id;
     private int registrationNumber;
     private String firstName;
     private String lastName;
     private LocalDate dateOfBirth;
     private LocalDate entryDate;
     private String email;
-    //@Column(name = "faculty_id")
-   // private Faculty adviser;
+
+    @ManyToOne
+    @JoinColumn(name = "faculty_id")
+    private Faculty adviser;
 
     @ManyToMany
     private List<Course> enrolledCourse;
@@ -87,13 +91,13 @@ public class Student {
         this.email = email;
     }
 
-  //  public Faculty getAdviser() {
-    //    return adviser;
-    //}
+    public Faculty getAdviser() {
+        return adviser;
+    }
 
-    //public void setAdviser(Faculty adviser) {
-      //  this.adviser = adviser;
-   // }
+    public void setAdviser(Faculty adviser) {
+        this.adviser = adviser;
+    }
 
     public List<Course> getEnrolledCourse() {
         return enrolledCourse;

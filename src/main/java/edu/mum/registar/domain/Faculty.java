@@ -1,5 +1,4 @@
 package edu.mum.registar.domain;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -11,7 +10,7 @@ public class Faculty {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "faculty_id")
-    private Long id;
+    private long id;
     private String firstName;
     private String lastName;
     private LocalDate dateOfBirth;
@@ -20,7 +19,7 @@ public class Faculty {
     @ManyToMany
     private List<Course> courses;
 
-    @OneToMany
+    @OneToMany(mappedBy = "adviser")
     private List<Student> advicees;
 
     public Faculty() {
