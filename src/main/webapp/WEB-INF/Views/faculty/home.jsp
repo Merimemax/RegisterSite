@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: merih
@@ -9,38 +10,50 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/facultyCss/home.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script
 </head>
 
 <body>
-<p>WelCome To Faculty Page </p>
+
 <h2>List of students</h2>
 
-<table>
+<table class="table">
+    <thead class="thead-light">
     <tr>
-        <th>Id</th>
-        <th>firstName</th>
-        <th>lastName</th>
-        <th> RegistrationNumber</th>
-        <th>EntryDate</th>
-        <th><a href="url">SeeDetails </a></th>
+        <th scope="col">Id</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Entry Date</th>
+        <th scope="col">Registration Number</th>
+        <th scope="col">Details</th>
+        <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
 
-        <th><a href="url">Delete </a></th>
+    <tr var="stu" items="${students}">
+
+        <td>${stu.id}</td>
+
+        <td>${stu.firstName}</td>
+
+        <td><c:out value="${stu.lastName}"/></td>
+
+        <td><c:out value="${stu.entryDate}"/></td>
+
+        <td><c:out value="${stu.registrationNumber}"/></td>
+
+        <td> <a class="btn btn-primary"><strong>Details</strong></a> </td>
+
+        <td> <a class="btn btn-primary"><strong>Action</strong></a> </td>
+
 
     </tr>
 
-    <c:forEach var="stu" items="${}">
-        <c:out value="${stu.id}" />
-
-    <c:out value="${stu.firstName}" />
-
-    <c:out value="${stu.lastName}" />
-
-    <c:out value="${stu.registrationNumber}" />
-
-        <c:out value="${stu.entryDate}" />
-
-    </c:forEach>
+    </tbody>
 </table>
 </body>
 </html>
