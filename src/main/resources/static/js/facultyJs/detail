@@ -1,0 +1,57 @@
+//
+// $(document).ready(function(){
+//     $("#detail").click(function(){
+//         alert("Text: " + $("#test").text());
+//     });
+//     $("#Delete").click(function(){
+//         alert("HTML: " + $("#test").html());
+//     });
+// });
+
+
+
+$(function(){
+    $("#detail").click(sayHi);
+    
+    function sayHi() {
+        alert("Hi");
+    }
+})
+
+
+
+
+
+
+// $( document ).ready(function() {
+//
+//     // GET REQUEST
+//     $("#detail").click(function(event){
+//         event.preventDefault();
+//         ajaxGet();
+//     });
+//
+//     // DO GET
+//     function ajaxGet(){
+//         $.ajax({
+//             type : "GET",
+//             url : window.location + "api/  /all",
+//             success: function(result){
+//
+//                     $.each(result.data, function(i, student){
+//
+//                         );
+//                     console.log("Success: ", result);
+//                 }
+//             },
+//             error : function(e) {
+//                 $("#detail").html("<strong>Error</strong>");
+//                 console.log("ERROR: ", e);
+//             }
+//         });
+//     }
+// })
+
+
+
+

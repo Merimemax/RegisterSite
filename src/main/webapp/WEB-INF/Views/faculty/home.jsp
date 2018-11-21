@@ -13,7 +13,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/facultyCss/home.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/js/facultyJs/detail.js"></script>
 </head>
 
 <body>
@@ -34,24 +37,36 @@
     </thead>
     <tbody>
 
-    <tr var="stu" items="${students}">
+    <%--<tr var="stu" items="${students}">--%>
 
-        <td>${stu.id}</td>
+    <%--<td>${stu.id}</td>--%>
 
-        <td>${stu.firstName}</td>
+    <%--<td>${stu.firstName}</td>--%>
 
-        <td><c:out value="${stu.lastName}"/></td>
+    <%--<td>${stu.lastName}</td>--%>
 
-        <td><c:out value="${stu.entryDate}"/></td>
+    <%--<td>${stu.entryDate}</td>--%>
 
-        <td><c:out value="${stu.registrationNumber}"/></td>
+    <%--<td>${stu.registrationNumber}</td>--%>
 
-        <td> <a class="btn btn-primary"><strong>Details</strong></a> </td>
+    <%--<td> <a class="btn btn-primary"><strong>Details</strong></a> </td>--%>
 
-        <td> <a class="btn btn-primary"><strong>Action</strong></a> </td>
+    <%--</tr>--%>
 
+    <p id="test">
+    <c:forEach items="${students}" var="stu">
+    <tr>
+        <td>  <c:out value="${stu.id}"/></td>
+        <td>  <c:out value="${stu.firstName}"/></td>
+        <td> <c:out value="${stu.lastName}"/></td>
+        <td> <c:out value="${stu.entryDate}"/></td>
+        <td> <c:out value="${stu.registrationNumber}"/></td>
+        </p>
 
+        <td> <a  id ="detail" type="button" class="btn btn-primary"><strong>Details</strong></a> </td>
+            <td> <a id=" Delete"class="btn btn-primary"><strong>Delete</strong></a> </td>
     </tr>
+    </c:forEach>
 
     </tbody>
 </table>

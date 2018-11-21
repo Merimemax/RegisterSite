@@ -14,6 +14,14 @@ public class facultyServiceImpl implements FacultyService {
 
     @Override
     public Faculty findFacultyByEmail(String email) {
-        return facultyRepository.findFacultyByEmail(email);
+//        return facultyRepository.findFacultyByEmail(email);
+
+        Faculty faculty = new Faculty();
+        faculty.setFirstName("Tina");
+        faculty.setLastName("Xing");
+        faculty.setEmail("tina@mum.edu");
+        return faculty;
     }
+
+
 }
