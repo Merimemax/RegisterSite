@@ -16,13 +16,14 @@
     <link rel="stylesheet" href="/css/studentCss/login.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <%--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>--%>
+
 </head>
 <body>
 
 <h1> </h1>
 <a href="?language=en" >English</a>  |  <a href="?language=ti_ER" >Tigrigna</a>
-<form:form modelAttribute="credentials">
+<form:form modelAttribute="credentials" action="/faculty/login" method="post">
     <h3>Please Log In</h3>
     <form:errors path="*" cssStyle="color: #f00;"/>
     <div class="form-group">
@@ -46,15 +47,6 @@
     <button type="submit" class="btn btn-primary">Submit</button>
 </form:form>
 
-
-<%--<p>--%>
-    <%--<label for="lastName"><spring:message code="employee.form.lastName"/> </label>--%>
-    <%--<form:input path="lastName" />--%>
-
-<%--<div style="text-align: center;">--%>
-    <%--<form:errors path="lastName" cssStyle="color : red;" />--%>
-<%--</div>--%>
-<%--</p>--%>
 
 
 </body>

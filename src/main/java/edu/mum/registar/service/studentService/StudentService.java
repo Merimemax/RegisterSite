@@ -10,6 +10,8 @@ public interface StudentService {
 
     public List<Student> findAllStudent();
 
+    Student findStudentById(String id);
+
     public List<Student> findAllStudentByFacultyId(String faculty_id);
 
     public void save(Student student);
