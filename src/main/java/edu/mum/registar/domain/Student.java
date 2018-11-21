@@ -13,11 +13,11 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private int registrationNumber;
+    private int registrationNumber = (int)(Math.random() * 50 + 1);;
     private String firstName;
     private String lastName;
-    private LocalDate dateOfBirth;
-    private LocalDate entryDate;
+    private LocalDate dateOfBirth = LocalDate.of(1990, 5, 23);
+    private LocalDate entryDate = LocalDate.now();
     private String email;
 
     @ManyToOne
@@ -30,9 +30,19 @@ public class Student {
     @ManyToMany
     private List<Course> waiveredCourse;
 
+
     public Student() {
         enrolledCourse = new ArrayList<>();
         waiveredCourse = new ArrayList<>();
+    }
+
+
+    public void enrolleCourse(Course course) {
+        enrolledCourse.add(course);
+    }
+
+    public void waiveCourse(Course course) {
+        enrolledCourse.add(course);
     }
 
     public Long getId() {
@@ -114,4 +124,23 @@ public class Student {
     public void setWaiveredCourse(List<Course> waiveredCourse) {
         this.waiveredCourse = waiveredCourse;
     }
+
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", registrationNumber=" + registrationNumber +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", entryDate=" + entryDate +
+                ", email='" + email + '\'' +
+                ", adviser=" + adviser +
+                ", enrolledCourse=" + enrolledCourse +
+                ", waiveredCourse=" + waiveredCourse +
+                '}';
+    }
+
 }
+

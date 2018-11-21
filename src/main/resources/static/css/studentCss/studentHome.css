@@ -1,7 +1,10 @@
-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
-    height: auto;
+body {
+    background-color: #5f6f81;
+}
+
+.courseList{
+    width: 70%;
+    margin-top: 30px;
+    float: left;
+
 }

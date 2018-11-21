@@ -17,7 +17,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student findStudentByEmail(String email) {
-        return studentRepository.findStudentByEmail(email);
+        return studentRepository.findStudentByStudentEmail(email);
     }
 
     @Override
@@ -27,7 +27,12 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public List<Student> findAllStudentByFacultyId(String faculty_id) {
-        return (List<Student>) studentRepository.findStudentsByFacultyId(faculty_id);
+        return (List<Student>) studentRepository.findStudentByStudentFacultyId(faculty_id);
+    }
+
+    @Override
+    public void save(Student student) {
+        studentRepository.save(student);
     }
 }
 

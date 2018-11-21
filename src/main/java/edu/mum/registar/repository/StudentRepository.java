@@ -12,9 +12,9 @@ import java.util.List;
 public interface StudentRepository extends CrudRepository<Student, Long> {
 
     @Query("SELECT s FROM Student s WHERE s.email = :email")
-    Student findStudentByEmail(@Param("email") String email);
+    Student findStudentByStudentEmail(@Param("email") String email);
 
     @Query("SELECT s FROM Student s where s.adviser = :faculty_id")
-    List<Student> findStudentsByFacultyId(@Param("faculty_id") String faculty_id);
+    List<Student> findStudentByStudentFacultyId(@Param("faculty_id") String faculty_id);
 
 }

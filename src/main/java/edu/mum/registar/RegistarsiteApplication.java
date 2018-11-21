@@ -3,6 +3,7 @@ package edu.mum.registar;
 import java.util.Locale; 
 
 import org.springframework.boot.SpringApplication;
+<<<<<<< HEAD
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -16,10 +17,19 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 @ComponentScan
 @EnableAutoConfiguration
 public class RegistarsiteApplication implements WebMvcConfigurer    {
+=======
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+
+@SpringBootApplication
+public class RegistarsiteApplication extends SpringBootServletInitializer {
+>>>>>>> 02faf043ef63d586c52b890c63491e1693d1bb20
 
     public static void main(String[] args) {
         SpringApplication.run(RegistarsiteApplication.class, args);
     }
+<<<<<<< HEAD
     
     
     @Bean
@@ -40,4 +50,7 @@ public class RegistarsiteApplication implements WebMvcConfigurer    {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(localeChangeInterceptor());
     }
+=======
+
+>>>>>>> 02faf043ef63d586c52b890c63491e1693d1bb20
 }

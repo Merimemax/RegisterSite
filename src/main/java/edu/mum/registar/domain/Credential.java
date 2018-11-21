@@ -1,6 +1,7 @@
 package edu.mum.registar.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
@@ -9,9 +10,10 @@ public class Credential {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="user_id")
-    private Long id;
+    private long id;
 
     @NotEmpty(message = "User Name can be empty")
+    @Email
     private String userName;
 
     @NotEmpty(message = "Password can be empty")
