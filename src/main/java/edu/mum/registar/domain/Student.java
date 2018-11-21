@@ -13,7 +13,7 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private int registrationNumber;
+    private int registrationNumber = (int)(Math.random() * 50 + 1);;
     private String firstName;
     private String lastName;
     private LocalDate dateOfBirth = LocalDate.of(1990, 5, 23);
