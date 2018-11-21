@@ -3,8 +3,8 @@ package edu.mum.registar.repository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import edu.mum.registar.domain.Semester;
+import edu.mum.registar.domain.Section;
 @Repository
-public interface SemesterRepository extends CrudRepository<Semester,Long>{
+public interface SectionRepository extends CrudRepository<Section,Long>{
 
 }

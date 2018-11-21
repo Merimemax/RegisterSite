@@ -54,7 +54,7 @@
 						</div><!-- /gn-scroller -->
 					</nav>
 				</li>
-				<li><a href="<spring:url value="/admin/section" />">Codrops</a></li>
+				<li><a href="<spring:url value="/admin/block" />">CodroBs</a></li>
 				<li><a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Development/HeaderEffects/"><span>Previous Demo</span></a></li>
 				<li><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=16030"><span>Back to the Codrops Article</span></a></li>
 			</ul>

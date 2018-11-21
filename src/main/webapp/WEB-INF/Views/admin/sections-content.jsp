@@ -4,7 +4,7 @@
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    
  <link rel="stylesheet" type="text/css"href="<spring:url value="/css/adminCss/blocks.css" />"/>
 
-<h1>Semester Blocks</h1>
+<h1> Sections</h1>
 
 
  
@@ -22,7 +22,7 @@
 
 
 	<!-- No action method handled by AJAX-->
-	<form id="categoryForm" >
+	<%-- <form id="categoryForm" >
 
 			<input type="hidden" name="id" value="0">
 			
@@ -41,7 +41,7 @@
  
             
     
-    </form>
+    </form> --%>
 
 <table id="tbl_products" class="table table-dark ">
     <thead >
@@ -55,26 +55,22 @@
     </tr>
     </thead>
     <tbody>
+  <c:forEach items="${sections}" var="section">
+   <tr >
 
-    <%-- <tr var="stu" items="${students}">
+        <td>${section.id}</td>
 
-        <td>${stu.id}</td>
+        <td>${section.sectionNo}</td>
 
-        <td>${stu.firstName}</td>
+        <td><c:out value="${section.course.courseName}"/></td>
 
-        <td><c:out value="${stu.lastName}"/></td>
-
-        <td><c:out value="${stu.entryDate}"/></td>
-
-        <td><c:out value="${stu.registrationNumber}"/></td>
-
-        <td> <a class="btn btn-primary"><strong>Details</strong></a> </td>
-
-        <td> <a class="btn btn-primary"><strong>Action</strong></a> </td>
+        <td><c:out value="${section.proffessor.firstName}"/></td>
+     
+        <td> <a class="btn btn-primary" href="<spring:url value="/admin/section/${section.id}" />"  ><strong>Students</strong></a> </td>
 
 
-    </tr> --%>
-
+    </tr> 
+</c:forEach>
     </tbody>
 </table>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script> 
