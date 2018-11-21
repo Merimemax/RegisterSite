@@ -1,6 +1,7 @@
 package edu.mum.registar.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
@@ -12,6 +13,7 @@ public class Credential {
     private Long id;
 
     @NotEmpty(message = "User Name can be empty")
+    @Email
     private String userName;
 
     @NotEmpty(message = "Password can be empty")
