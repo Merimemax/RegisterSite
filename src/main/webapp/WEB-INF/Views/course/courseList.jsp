@@ -12,10 +12,44 @@
 
 <div id=container>
 
+
+<h2>List of Courses</h2>
+
 <input type="button" value="AddCourse" onclick="window.location.href='showFormForAdd';return false;"/>
 
-
-
+<table>
+				<tr>
+					<th>Course Code</th>
+					<th>Course Name</th>
+					<th>credit</th>
+					<th>Edit</th>
+					
+					
+				</tr>
+				
+				<c:forEach var="course" items="${courses}">
+				<c:url var="updatelink" value="/showFormForUpdate">
+				<c:param name="id" value="${course.id}"/>
+				</c:url>
+				
+				<c:url var="deletelink" value="/delete">
+				<c:param name="id" value="${course.id}"/>
+				</c:url>
+				
+					<tr>
+						<td> ${course.courseCode} </td>
+						<td> ${course.courseName} </td>
+						<td> ${course.credit} </td>
+						<td><a href="${updatelink}"> Edit </a><td>
+						<td><a href="${deletelink}">Delete</a></td>
+						
+					</tr>
+				
+				</c:forEach>
+						
+			</table>
+				
+		</div>
 
 
 </div>

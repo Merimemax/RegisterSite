@@ -125,6 +125,7 @@ public class Student {
         this.waiveredCourse = waiveredCourse;
     }
 
+
     @Override
     public String toString() {
         return "Student{" +
@@ -140,4 +141,6 @@ public class Student {
                 ", waiveredCourse=" + waiveredCourse +
                 '}';
     }
+
 }
+
