@@ -1,5 +1,8 @@
 package edu.mum.registar.service.impl.courseServiceImpl;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,8 +18,34 @@ public class CourseServiceImpl implements CourseService{
 	@Override
 	public void save(Course course) {
 		
-		
 		courserepository.save(course);
 	}
+
+	@Override
+	public List<Course> getcourses() {
+		// TODO Auto-generated method stub
+		return (List<Course>) courserepository.findAll();
+	}
+
+	@Override
+	public Course getcoursesbyID(long id) {
+
+		return courserepository.findById(id).get();
+		
+	}
+
+	@Override
+	public void deletecourse(long id) {
+		
+		courserepository.deleteById(id);
+	}
+
+
+
+	
+	
+
+
+	
 
 }

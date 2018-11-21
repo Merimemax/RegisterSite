@@ -7,18 +7,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Course {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
     private long id;
+	@NotEmpty(message="courseCode cant be null")
     private String courseCode;
+	@NotEmpty (message="courseName cant be null")
     private String courseName;
     @OneToOne
     @JoinColumn(name="prerequiste_id")
     private Course prerequiste;
-    private int credit;
+    @NotNull (message="credit cant be null")
+    private Integer credit;
 
     public long getId() {
         return id;
@@ -28,7 +33,8 @@ public class Course {
         this.id = id;
     }
 
-    public String getCourseCode() {
+   
+	public String getCourseCode() {
         return courseCode;
     }
 
@@ -52,11 +58,11 @@ public class Course {
         this.prerequiste = prerequiste;
     }
 
-    public int getCredit() {
+    public Integer getCredit() {
         return credit;
     }
 
-    public void setCredit(int credit) {
+    public void setCredit(Integer credit) {
         this.credit = credit;
     }
 }
