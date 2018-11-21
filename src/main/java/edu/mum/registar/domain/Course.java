@@ -7,8 +7,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+
+import org.springframework.web.multipart.MultipartFile;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Course {
@@ -24,6 +29,9 @@ public class Course {
     private Course prerequiste;
     @NotNull (message="credit cant be null")
     private Integer credit;
+    
+    @Transient
+    private MultipartFile productImage;
 
     public long getId() {
         return id;
