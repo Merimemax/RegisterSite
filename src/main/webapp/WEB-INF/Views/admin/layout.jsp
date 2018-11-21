@@ -54,14 +54,15 @@
 						</div><!-- /gn-scroller -->
 					</nav>
 				</li>
-				<li><a href="<spring:url value="/admin" />">Codrops</a></li>
+				<li><a href="<spring:url value="/admin/section" />">Codrops</a></li>
 				<li><a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Development/HeaderEffects/"><span>Previous Demo</span></a></li>
 				<li><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=16030"><span>Back to the Codrops Article</span></a></li>
 			</ul>
 		<header>
-				<h1>Google Nexus Website Menu <span>A sidebar menu as seen on the <a href="http://www.google.com/nexus/index.html">Google Nexus 7</a> page</span></h1>	
-			</header>  
+				<!-- <h1>Google Nexus Website Menu <span>A sidebar menu as seen on the <a href="http://www.google.com/nexus/index.html">Google Nexus 7</a> page</span></h1>	 -->
 			<jsp:include page="${param.content}.jsp" flush="true"/>
+			</header>  
+			
 		</div><!-- /container -->
 		
 		<spring:url value="/js/adminJs/classie.js" var="jqueryJs" />
