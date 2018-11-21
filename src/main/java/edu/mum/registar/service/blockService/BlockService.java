@@ -8,5 +8,6 @@ import edu.mum.registar.domain.Block;
 public interface BlockService {
 	List<Block> getBlocks();
 	Block getOne(long id);
+	Block save(Block block);
 
 }

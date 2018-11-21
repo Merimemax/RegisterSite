@@ -12,7 +12,7 @@ public class Section {
     private String sectionNo;
     private int capacity;
     
-    @OneToMany
+    @OneToMany( fetch = FetchType.LAZY)
     private List<Student> students;
     @OneToOne
     private Course course;
@@ -52,7 +52,15 @@ public class Section {
         this.course = course;
     }
 
-    public Faculty getProffessor() {
+    public List<Student> getStudents() {
+		return students;
+	}
+
+	public void setStudents(List<Student> students) {
+		this.students = students;
+	}
+
+	public Faculty getProffessor() {
         return proffessor;
     }
 

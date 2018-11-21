@@ -1,6 +1,10 @@
 package edu.mum.registar.domain;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -10,8 +14,9 @@ public class Block {
     private Long id;
     private String blockName;
 
-    @ManyToMany
-    private List<Section> sections;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JsonIgnore
+    private List<Section> sections=new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -35,5 +40,9 @@ public class Block {
 
     public void setSections(List<Section> sections) {
         this.sections = sections;
+    }
+    
+    public void addSection(Section section) {
+    	this.sections.add(section);
     }
 }
