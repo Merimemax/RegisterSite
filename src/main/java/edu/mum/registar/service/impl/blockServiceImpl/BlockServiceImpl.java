@@ -28,4 +28,10 @@ public class BlockServiceImpl implements BlockService {
 		return block;
 	}
 
+	@Override
+	public Block save(Block block) {
+		// TODO Auto-generated method stub
+		return blockRepository.save(block);
+	}
+
 }
