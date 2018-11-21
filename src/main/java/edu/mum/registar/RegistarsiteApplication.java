@@ -6,7 +6,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class RegistarsiteApplication extends SpringBootServletInitializer {
+public class RegistarsiteApplication  {
 
     public static void main(String[] args) {
         SpringApplication.run(RegistarsiteApplication.class, args);
