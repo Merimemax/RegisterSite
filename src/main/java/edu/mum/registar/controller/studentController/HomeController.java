@@ -53,7 +53,7 @@ public class HomeController {
         credential.setPassword(hashedPassword);
 
         credentialService.saveCredential(credential);
-        //        studentService.save(student);
+                studentService.save(student);
         redirectAttributes.addFlashAttribute("student",student );
         return "redirect:/home";
     }
