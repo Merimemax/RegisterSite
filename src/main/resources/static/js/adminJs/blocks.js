@@ -13,12 +13,27 @@ function displayBlocks(){
 //		url: '/Book5Rest/addCategory',
 		dataType: "json",           // Accept header
  		success: function(data){
- 			$.each(data, function(k, v) {
- 			    console.log("hi"+ v.blockName);
+ 		   $('#tbl_products>tbody').html("");
+ 			$.each(data, function(k, result) {
+ 		 			  /* var $tr = $('<tr/>');
+ 			    $tr.append($('<td/>').html(result.id));
+ 			    $tr.append($('<td/>').html(result.blockName));
+ 			   
+ 			    $('.list-order tr:last').before($tr);*/
+ 			    
+ 			 var td0=$('<td>').text(result.id);
+ 		        
+ 		         var td1 = $('<td>').text(result.blockName);
+ 		        var td2 = $('<td>').text("01-01-2018");
+ 		       var td3 = $('<td>').text("01-01-2018");
+ 		       var url="/admin/section?blockid="+result.id;
+ 		      var td4 = $('<td>').html("<a class='btn btn-primary' href='"+url+"'><span style='color:white;font-size: 11px'><strong>Sections</strong></span></a>");
+ 		        
+ 		         var tr = $('<tr>').append(td0).append(td1).append(td2).append(td3).append(td4);
+ 		         $('#tbl_products>tbody').append(tr);
+ 			    
  			});
-//			$('#errors').html("");
-// 			$("#result").append( '<H3 align="center"> OKAY!! <H3>');                
-//	 	    $('#result').show();
+
 		},
  
 		error: function(errorObject ){	

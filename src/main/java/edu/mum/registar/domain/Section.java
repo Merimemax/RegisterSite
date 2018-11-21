@@ -1,5 +1,7 @@
 package edu.mum.registar.domain;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -8,7 +10,10 @@ public class Section {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String sectionNo;
-
+    private int capacity;
+    
+    @OneToMany
+    private List<Student> students;
     @OneToOne
     private Course course;
 
@@ -22,6 +27,14 @@ public class Section {
     public void setId(Long id) {
         this.id = id;
     }
+    public int getCapacity() {
+  		return capacity;
+  	}
+
+
+  	public void setCapacity(int capacity) {
+  		this.capacity = capacity;
+  	}
 
     public String getSectionNo() {
         return sectionNo;
