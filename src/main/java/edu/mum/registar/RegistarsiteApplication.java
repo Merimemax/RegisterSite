@@ -16,8 +16,6 @@ import java.util.Locale;
 
 
 @Configuration
-@ComponentScan
-@EnableAutoConfiguration
 @SpringBootApplication
 public class RegistarsiteApplication implements WebMvcConfigurer {
 
