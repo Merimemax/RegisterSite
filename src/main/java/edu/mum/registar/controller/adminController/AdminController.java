@@ -8,10 +8,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import edu.mum.registar.domain.Block;
+import edu.mum.registar.domain.Section;
 import edu.mum.registar.domain.Semester;
+import edu.mum.registar.service.blockService.BlockService;
+import edu.mum.registar.service.sectionService.SectionService;
 import edu.mum.registar.service.semesterService.SemesterService;
 
 @Controller
@@ -19,8 +23,9 @@ import edu.mum.registar.service.semesterService.SemesterService;
 public class AdminController {
 	@Autowired
 	private SemesterService semesterService;
-	
-	@GetMapping("/section")
+	@Autowired
+	private BlockService blockService;
+	@GetMapping("/block")
 	public String displaySection(Model model) {
 		List<Semester> sems=semesterService.getSemesters();
 	
@@ -34,5 +39,15 @@ public class AdminController {
 		return semester.getBlockList();
 		
 	}
+	
+	@GetMapping("/section")
+	public String getSections(@RequestParam("blockid") long id,Model model) {
+		Block block=blockService.getOne(id);
+		List<Section> sections=block.getSections();
+		model.addAttribute("sections",sections );
+		return "/admin/sections";
+		
+	}
+	
 	
 }

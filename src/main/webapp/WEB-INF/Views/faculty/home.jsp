@@ -15,11 +15,16 @@
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/facultyCss/home.css">
+<<<<<<< HEAD
 
 
     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <spring:url value="/js/facultyJs/facultyHome.js" var="faculty"/>
     <script src="${facultyHome}"></script>
+=======
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+>>>>>>> 8d592616d9d8dfdc36830c657985ca8ea3ad03cc
 </head>
 
 <body>
