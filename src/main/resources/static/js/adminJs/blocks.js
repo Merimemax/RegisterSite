@@ -37,8 +37,9 @@ function displayBlocks(){
 		},
  
 		error: function(errorObject ){	
+			console.log(errorObject);
 
-			if (errorObject.responseJSON.errorType == "ValidationError") {
+		/*	if (errorObject.responseJSON.errorType == "ValidationError") {
 	 			$('#success').html("");
 	 			$('#errors').html("");
 	 			$("#errors").append( '<H3 align="center"> Error(s)!! <H3>');                
@@ -53,7 +54,7 @@ function displayBlocks(){
 			}
 			else {
 				alert(errorObject.responseJSON.errors(0));   // "non" Validation Error
-			}
+			}*/
  		}
 	});
 }
