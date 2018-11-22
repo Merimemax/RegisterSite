@@ -19,7 +19,7 @@ public class CourseIdValidator  implements ConstraintValidator<CourseCode,String
 
 	@Override
 	public boolean isValid(String value, ConstraintValidatorContext context ) {
-		List <Course> course = null;
+		Course course = null;
 		try {
 			course = courseService.geyCourseByCourseCode(value);
 		} catch (Exception e) {

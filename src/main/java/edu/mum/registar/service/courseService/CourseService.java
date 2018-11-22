@@ -15,7 +15,7 @@ public interface CourseService {
 
 	void deletecourse(long id);
 
-	public List<Course> geyCourseByCourseCode(String value);
+	public Course geyCourseByCourseCode(String value);
 	
 
 	

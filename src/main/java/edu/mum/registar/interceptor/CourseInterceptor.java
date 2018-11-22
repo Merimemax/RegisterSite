@@ -1,6 +1,6 @@
 package edu.mum.registar.interceptor;
 
-import java.security.Principal;
+import java.security.Principal; 
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
