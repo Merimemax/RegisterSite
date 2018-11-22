@@ -43,7 +43,7 @@ public class FacultyLoginController {
 //        Faculty faculty = facultyService.findFacultyByEmail(email);
 
 //        System.out.println("faculty id is " + faculty.getFirstName());
-        redirectAttributes.addFlashAttribute("students", studentService.findAllStudentByFacultyId(3));
+//        redirectAttributes.addFlashAttribute("students", studentService.findAllStudentByFacultyId());
 
         //        redirectAttributes.addFlashAttribute("students", FacultyLoginController.getStudents());
 //        model.addAttribute("students", FacultyLoginController.getStudents() );
