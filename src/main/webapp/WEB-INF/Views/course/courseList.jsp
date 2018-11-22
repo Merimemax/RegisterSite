@@ -40,6 +40,15 @@
 					
 				</tr>
 				
+				<c:forEach var="course" items="${editcourses}">
+				
+				 ${course.courseCode}
+				</c:forEach>
+				
+				
+				
+				
+				
 				<c:forEach var="course" items="${courses}">
 				<c:url var="updatelink" value="/showFormForUpdate">
 				<c:param name="id" value="${course.id}"/>

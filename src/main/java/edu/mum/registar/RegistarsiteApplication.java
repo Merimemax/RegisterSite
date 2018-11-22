@@ -38,7 +38,7 @@ public class RegistarsiteApplication implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(localeChangeInterceptor()); //this is for language
-        registry.addInterceptor(CourseInterceptor()).addPathPatterns("/courseList/**");        
+        registry.addInterceptor(CourseInterceptor()).addPathPatterns("/showFormForUpdate/**");        
         
     }
 

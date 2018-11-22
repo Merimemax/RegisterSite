@@ -25,7 +25,7 @@ public class CourseInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse arg1, Object arg2) throws Exception {
 //		System.out.println("-----preHandle----");
 		System.out.print("hiiii");
-		String userMessage = "Welcome to web security demo!";
+		String userMessage = "Welcome to  Edit page !";
 		request.setAttribute("userMessage", userMessage);
 		return true;
 	}

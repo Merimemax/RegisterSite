@@ -1,6 +1,6 @@
 package edu.mum.registar.controller.courseController;
 
-import java.util.List;
+import java.util.List; 
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
@@ -37,8 +37,8 @@ public class CourseController {
 	@GetMapping(value="/courseList")
 	public String course(Model model)
 		{
-	
-	return "course/courseList";
+	model.addAttribute("courses", courseservice.getcourses());
+	return "course/courses";
 
 		}
 
@@ -49,7 +49,7 @@ public String showForm(@ModelAttribute("Course") Course course,Model model)
 	
 	
 model.addAttribute("courses",courses);
-return "course/courseForm";
+return "course/addCourse";
 
 }
 
@@ -72,7 +72,7 @@ public String saveCourse(@Valid @ModelAttribute("Course") Course course, Binding
 		
 	}
 	
-	return "course/courseForm";
+	return "course/addCourse";
 	}
 
 @GetMapping(value="/showFormForUpdate")
@@ -84,7 +84,7 @@ public String updateform(@ModelAttribute("Course") Course cours,@RequestParam("i
 		throw new NoCoursesFoundException(" we can not find the course you are trying to edit ");
 		}
 	model.addAttribute("course",course);
-	return "course/courseupdate";
+	return "course/editCourse";
 	}
 
 @GetMapping(value="/delete")
@@ -106,19 +106,18 @@ return mav;
 
 
 @PostMapping("/search")
-public String searchCustomers(@RequestParam("theSearchName") String theSearchName,
-								Model theModel) throws NoCoursesFoundException
+public String searchCustomers(@RequestParam("theSearchName") String theSearchName,Model theModel) 
 
 {
 
-//	List< Course> course = courseservice.geyCourseByCourseCode(theSearchName);
-//				
-//	if (course.isEmpty()) {
-//		throw new NoCoursesFoundException(" You have provided aninvalid input to be searched ");
-//		}
-//	theModel.addAttribute("courses", course);
-//
-//	return "course/courseList";	
-	return "";
+/*Course course = courseservice.geyCourseByCourseCode(theSearchName);
+				
+	if (courseservice.geyCourseByCourseCode(theSearchName)==null) {
+		throw new NoCoursesFoundException(" You have provided aninvalid input to be searched ");
+		}
+	theModel.addAttribute("editcourses", course);*/
+
+	return "course/courses";	
+	
 }
 }
