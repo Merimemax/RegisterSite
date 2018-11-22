@@ -1,7 +1,6 @@
 package edu.mum.registar.controller.courseController;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.List; 
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -18,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+
 import edu.mum.registar.domain.Course;
 import edu.mum.registar.service.courseService.CourseService;
 
@@ -33,13 +33,13 @@ public class CourseController {
 	 return courseservice.getcourses();
 	}
 
-@GetMapping(value="/courseList")
-public String course(Model model)
-{
+	@GetMapping(value="/courseList")
+	public String course(Model model)
+		{
 	
 	return "course/courseList";
 
-}
+		}
 
 @GetMapping(value="/showFormForAdd")
 public String showForm(@ModelAttribute("Course") Course course,Model model) 
@@ -72,7 +72,7 @@ public String saveCourse(@Valid @ModelAttribute("Course") Course course, Binding
 @GetMapping(value="/showFormForUpdate")
 public String updateform(@ModelAttribute("Course") Course cours,@RequestParam("id") long id ,Model model)throws NoCoursesFoundException
 {
-	 Course course=courseservice.getcoursesbyID(1000);
+	 Course course=courseservice.getcoursesbyID(id);
 	System.out.println(course);
 	if (course==null) {
 		throw new NoCoursesFoundException(" we can not find the course you are trying to edit ");
@@ -92,10 +92,26 @@ public String delete(@RequestParam("id")long id,Model model)
 public ModelAndView handleError(HttpServletRequest req,NoCoursesFoundException exception) {
 ModelAndView mav = new ModelAndView();
 mav.addObject("msg", exception.getMessage());
-System.out.println("hi");
 
 mav.addObject("url", req.getRequestURL());
 mav.setViewName("course/NocourseFound");
 return mav;
+}
+
+
+@PostMapping("/search")
+public String searchCustomers(@RequestParam("theSearchName") String theSearchName,
+								Model theModel) throws NoCoursesFoundException
+
+{
+
+	List< Course> course = courseservice.geyCourseByCourseCode(theSearchName);
+				
+	if (course.isEmpty()) {
+		throw new NoCoursesFoundException(" You have provided aninvalid input to be searched ");
+		}
+	theModel.addAttribute("courses", course);
+
+	return "course/courseList";		
 }
 }

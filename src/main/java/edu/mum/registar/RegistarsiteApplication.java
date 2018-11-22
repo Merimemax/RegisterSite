@@ -1,36 +1,38 @@
 package edu.mum.registar;
 
-import java.util.Locale; 
+import java.util.Locale;  
 
 import org.springframework.boot.SpringApplication;
-<<<<<<< HEAD
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.validation.Validator;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
+import org.springframework.web.util.UrlPathHelper;
 
-@Configuration
-@ComponentScan
-@EnableAutoConfiguration
-public class RegistarsiteApplication implements WebMvcConfigurer    {
-=======
+
+import edu.mum.registar.interceptor.CourseInterceptor;
+
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
+
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
+
 @SpringBootApplication
-public class RegistarsiteApplication extends SpringBootServletInitializer {
->>>>>>> 02faf043ef63d586c52b890c63491e1693d1bb20
+public class RegistarsiteApplication extends SpringBootServletInitializer implements WebMvcConfigurer{
+
 
     public static void main(String[] args) {
         SpringApplication.run(RegistarsiteApplication.class, args);
     }
-<<<<<<< HEAD
     
+    /*This is a place for Internalization message*/
     
     @Bean
     public SessionLocaleResolver localeResolver() {
@@ -46,11 +48,51 @@ public class RegistarsiteApplication extends SpringBootServletInitializer {
         return lci;
     }
     
+   
+   
+    
+    /**********This is configuration for  Custom Annotaion  validation and error message files**********/
+
+    @Bean
+	public MessageSource messageSource() {
+		ResourceBundleMessageSource resource = new ResourceBundleMessageSource();
+
+		resource.setBasenames("messages", "errorMessages");
+		return resource;
+	}
+	
+	@Bean(name="validator")
+	public LocalValidatorFactoryBean validator() {
+		LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();
+		bean.setValidationMessageSource(messageSource());
+		return bean;
+	}
+	
+	@Override
+	public Validator getValidator() {
+		return validator();
+	}
+	
+
+	/*This is a place for interceptor*/
+	@Override
+    public void configurePathMatch(PathMatchConfigurer configurer) {
+       UrlPathHelper urlPathHelper = new UrlPathHelper();
+       urlPathHelper.setRemoveSemicolonContent(false);
+       configurer.setUrlPathHelper(urlPathHelper);
+    }
+    
+    @Bean
+    CourseInterceptor CourseInterceptor() {
+         return new CourseInterceptor();
+    }
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(localeChangeInterceptor());
+        registry.addInterceptor(localeChangeInterceptor()); //this is for language
+        registry.addInterceptor(CourseInterceptor()).addPathPatterns("/courseList/**");        
+        
     }
-=======
-
->>>>>>> 02faf043ef63d586c52b890c63491e1693d1bb20
-}
+	
+	}
+    /*This is a place for interceptor*/
