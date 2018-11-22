@@ -23,23 +23,21 @@ public class FacultyLoginController {
     @Autowired
     FacultyService facultyService;
 
-    @GetMapping(value = "/login")
+    @GetMapping(value = "/")
     public String login(@ModelAttribute("credentials") Credential credential) {
         return "faculty/login";
     }
 
-    @PostMapping(value = "/login")
+    @PostMapping(value = "/")
     public String verifyCredentials(@Valid @ModelAttribute("credentials") Credential credential, BindingResult br, Model model, RedirectAttributes redirectAttributes) {
         if (br.hasErrors()) {
             return "faculty/login";
         }
 
-        String email = credential.getUserName();
-
-        String faculty_id = facultyService.findFacultyByEmail(email).getId().toString();
-
-        redirectAttributes.addFlashAttribute("students", studentService.findAllStudentByFacultyId(faculty_id));
-        return "redirect:/faculty/facultyHome";
+//        String email = credential.getUserName();
+//        String faculty_id = facultyService.findFacultyByEmail(email).getId().toString();
+//        redirectAttributes.addFlashAttribute("students", studentService.findAllStudentByFacultyId(faculty_id));
+        return "redirect:/faculty/home";
 
     }
 

@@ -12,12 +12,25 @@
 
 <div id=container>
 
+<strong>Hi !</strong> ${userMessage}<a href="${pageContext.request.contextPath}/courseList" class="alert-link">Back to Course List </a>.
 
 <h2>List of Courses</h2>
 
 <input type="button" value="AddCourse" onclick="window.location.href='showFormForAdd';return false;"/>
-
+<br>
+<br>
+<form:form action="search" method="POST">
+			Search Courses: <input type="text" name="theSearchName" />
+				
+				<input type="submit" value="Search" class="add-button" />
+			
+			</form:form>
+<br>
+<br>
 <table>
+
+
+
 				<tr>
 					<th>Course Code</th>
 					<th>Course Name</th>
@@ -30,6 +43,7 @@
 				<c:forEach var="course" items="${courses}">
 				<c:url var="updatelink" value="/showFormForUpdate">
 				<c:param name="id" value="${course.id}"/>
+				<c:param name="coursecode" value="${course.courseCode}"/>
 				</c:url>
 				
 				<c:url var="deletelink" value="/delete">
