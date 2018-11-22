@@ -73,4 +73,6 @@ public class Course {
     public void setCredit(Integer credit) {
         this.credit = credit;
     }
+
+	
 }
