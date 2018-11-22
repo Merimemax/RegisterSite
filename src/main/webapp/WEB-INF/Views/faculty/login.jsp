@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri = "http://www.springframework.org/tags/form" prefix = "form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <html>
 
 <head>
@@ -21,12 +22,12 @@
 <body>
 
 <h1> </h1>
-
+<a href="?lang=en" >English</a> | <a href="?lang=ti_ER" >Tigrigna</a>
 <form:form modelAttribute="credentials">
     <h3>Please Log In</h3>
     <form:errors path="*" cssStyle="color: #f00;"/>
     <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
+        <label for="exampleInputEmail1"><spring:message code="faculty.form.email"/></label>
         <form:input type="text" path="userName"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
         <div>
             <form:errors path="userName" cssStyle="color: #f00;"/>

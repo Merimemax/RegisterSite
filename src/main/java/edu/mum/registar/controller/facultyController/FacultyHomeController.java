@@ -13,9 +13,9 @@ public class FacultyHomeController {
     @Autowired
     StudentService studentService;
 
-    @GetMapping("/facultyHome")
+    @GetMapping("/home")
     public String success(){
-        return"faculty/home";
+        return"/faculty/home";
     }
 
 

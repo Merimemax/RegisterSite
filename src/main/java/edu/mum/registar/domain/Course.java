@@ -1,7 +1,6 @@
 package edu.mum.registar.domain;
 
-
-import javax.persistence.Entity;
+import javax.persistence.Entity;  
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,15 +11,16 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.web.multipart.MultipartFile;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import edu.mum.registar.validator.CourseCode;
 
 @Entity
 public class Course {
 	@Id
+	
 	@GeneratedValue(strategy=GenerationType.AUTO)
     private long id;
-	@NotEmpty(message="courseCode cant be null")
+	
+	@CourseCode
     private String courseCode;
 	@NotEmpty (message="courseName cant be null")
     private String courseName;

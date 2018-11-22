@@ -17,6 +17,8 @@
 		</div>
 
 <div>
+
+
 <h3>Save Course </h3>
 
 <form:form action="saveCourse" modelAttribute="Course" method="post">
@@ -62,20 +64,7 @@
 <td><form:input path="credit"/></td>
 </tr>
 
-<tr>
-<td><label class="control-label" for="uploadfile">Upload File:</label><td>
 
-	<form method="POST" enctype="multipart/form-data" id="fileUploadForm">
-					<div class="form-group">
-						<br>
-						<input type="file" class="form-control" id="uploadfile" placeholder="Upload File"  name="uploadfile"></input>
-					</div>
-					
-					<a href="/files" class="btn btn-default" role="button">Files</a>
-				</form>
-					</div>
-
-</tr>
 
 <tr>
 <td><input type="submit" class="btn btn-default" id="btnSubmit value="save"/></td>
