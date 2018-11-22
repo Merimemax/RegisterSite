@@ -20,8 +20,6 @@ public class LogInController {
     @Autowired
     StudentService studentService;
 
-
-
     @GetMapping(value = "/login")
     public String login(@ModelAttribute("credentials") Credential credential){
         return "student/login";

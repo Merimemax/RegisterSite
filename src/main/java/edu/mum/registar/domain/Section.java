@@ -1,5 +1,6 @@
 package edu.mum.registar.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -17,7 +18,11 @@ public class Section {
     private Integer capacity;
     
     @OneToMany( fetch = FetchType.LAZY)
-    private List<Student> students;
+    private List<Student> students = new ArrayList<>();
+
+    public void addStudent(Student student){
+        students.add(student);
+    }
     @OneToOne
     private Course course;
 

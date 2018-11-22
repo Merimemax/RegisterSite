@@ -68,7 +68,18 @@
             <form:input  path="entryDate" type="text" class="form-control" id="inputPassword4" placeholder="Entry Date" />
         </div>
     </div>
-    <button type="submit" class="btn btn-secondary">Sign in</button>
+
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <form:select path="semesterList"  items="${semester}" itemValue="id" itemLabel="semesterName">
+
+            </form:select>
+
+        </div>
+
+    </div>
+    <button type="submit" class="btn btn-secondary">Sign UP</button>
 </form:form>
 </body>
 </html>

@@ -20,6 +20,7 @@
     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <spring:url value="/js/studentJs/courseOption.js" var="options"/>
     <script src="${options}"></script>
+
 </head>
 <body>
 
@@ -39,50 +40,47 @@
     </form>
 </nav>
 
-<c:forEach var="sem" items="${semester}">
-    <h3>Semester ${sem.semesterName}</h3>
-    <c:forEach var="blocK" items="${sem.blockList}">
-        <hr>
-        <br>
-        <h3>Block ${blocK.blockName}</h3>
-
-        <c:forEach var="section" items="${blocK.sections}">
-
-
-            <table id="courseList" class="table table-bordered">
-                <thead>
-                <tr>
-                    <th scope="col">Section No</th>
-                    <th scope="col">Professor</th>
-                    <th scope="col">Course</th>
-                    <th scope="col">Course Code</th>
-                    <th scope="col">credit</th>
-                    <th scope="col">Enroll</th>
-
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>${section.id}</td>
-                    <td>${section.proffessor.firstName}</td>
-                    <td>${section.course.courseName}</td>
-                    <td>${section.course.courseCode}</td>
-                    <td>${section.course.credit}</td>
-
-                    <%--<%! String daynamicId = "'${section.id}' + '${student.id}'"; %>--%>
-                    <td><button class="btn btn-info" onclick="changeStatus('${section.id}' + '-' + '${student.id}')">Sign Up</button></td>
-
-
-                </tr>
-                </tbody>
-            </table>
-
-        </c:forEach>
-    </c:forEach>
+<c:forEach var="blocK" items="${semester.blockList}">
     <hr>
-    <br><br>
-</c:forEach>
+    <br>
+    <h3>Block ${blocK.blockName}</h3>
 
+    <c:forEach var="section" items="${blocK.sections}">
+
+
+        <table id="courseList" class="table table-bordered">
+            <thead>
+            <tr>
+                <th scope="col">Section No</th>
+                <th scope="col">Professor</th>
+                <th scope="col">Course</th>
+                <th scope="col">Course Code</th>
+                <th scope="col">credit</th>
+                <th scope="col">Enroll</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+
+                <td>${section.id}</td>
+                <td>${section.proffessor.firstName}</td>
+                <td>${section.course.courseName}</td>
+                <td>${section.course.courseCode}</td>
+                <td>${section.course.credit}</td>
+
+                <td>
+                    <input type="button" value="Sign Up" id="${section.id}+'-'+${student.id}" class="btn btn-info" onclick="changeStatus(${section.id}+'-'+${student.id})">
+
+
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </c:forEach>
+</c:forEach>
 
 </body>
 </html>

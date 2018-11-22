@@ -20,6 +20,20 @@ public class Student {
     private LocalDate entryDate = LocalDate.now();
     private String email;
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getSemesterList() {
+        return semesterList;
+    }
+
+    public void setSemesterList(long semesterList) {
+        this.semesterList = semesterList;
+    }
+
+    private  long semesterList;
+
     @ManyToOne
     @JoinColumn(name = "faculty_id")
     private Faculty adviser;
@@ -34,6 +48,7 @@ public class Student {
     public Student() {
         enrolledCourse = new ArrayList<>();
         waiveredCourse = new ArrayList<>();
+//        semesterList = new ArrayList<>();
     }
 
 

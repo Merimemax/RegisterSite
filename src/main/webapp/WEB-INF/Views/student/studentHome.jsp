@@ -40,18 +40,18 @@
 
 <div class="btn-group-vertical" id="side">
 
-    <a class="btn btn-info" id="selectCourse" href="/student/selectCourse">Select Courses</a>
+    <a class="btn btn-info" id="selectCourse" href="/student/selectCourse?studid=${student.semesterList}">Select Courses</a>
     <a class="btn btn-info" id="approvedWaivers" >View Approved Waivers</a>
     <a class="btn btn-info" id="enrolledCourse" >View Enrolled Courses</a>
     <%--<a class="btn btn-info" id="enrolledCourse" href="/student/enrolledcourses?id='${student.id}'">View Enrolled Courses</a>--%>
 
 </div>
 
-<section id="enrolled" style="display: none">
+<section id="enrolled" style="display: block">
     <h3>Enrolled Courses</h3>
-    <c:forEach items="${student.enrolledCourse}" var="enrolled" >
-
-    </c:forEach>
+    <%--<c:forEach items="${student.enrolledCourse}" var="enrolled" >--%>
+        <%--<p>${enrolled.id}</p>--%>
+    <%--</c:forEach>--%>
     <table id="courseList" class="table table-bordered">
         <thead>
         <tr>
@@ -75,28 +75,28 @@
     </table>
 </section>
 
-<section id="waivered" style="display: none">
-    <h3>Waived Courses</h3>
-    <c:forEach items="${student.waiveredCourse}" var="waived">
+<%--<section id="waivered" style="display: none">--%>
+    <%--<h3>Waived Courses</h3>--%>
+    <%--<c:forEach items="${student.waiveredCourse}" var="waived">--%>
 
-    </c:forEach>
-    <table id="courseList" class="table table-bordered">
-        <thead>
-        <tr>
-            <th scope="col">Course</th>
-            <th scope="col">Course Code</th>
-            <th scope="col">credit</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>${section.course.courseName}</td>
-            <td>${section.course.courseCode}</td>
-            <td>${section.course.credit}</td>
-        </tr>
-        </tbody>
-    </table>
-</section>
+    <%--</c:forEach>--%>
+    <%--<table id="courseList" class="table table-bordered">--%>
+        <%--<thead>--%>
+        <%--<tr>--%>
+            <%--<th scope="col">Course</th>--%>
+            <%--<th scope="col">Course Code</th>--%>
+            <%--<th scope="col">credit</th>--%>
+        <%--</tr>--%>
+        <%--</thead>--%>
+        <%--<tbody>--%>
+        <%--<tr>--%>
+            <%--<td>${section.course.courseName}</td>--%>
+            <%--<td>${section.course.courseCode}</td>--%>
+            <%--<td>${section.course.credit}</td>--%>
+        <%--</tr>--%>
+        <%--</tbody>--%>
+    <%--</table>--%>
+<%--</section>--%>
 
 
 
