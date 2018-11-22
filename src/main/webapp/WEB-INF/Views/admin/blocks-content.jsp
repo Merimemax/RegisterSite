@@ -29,14 +29,16 @@
        
          <p>
             
-            <label for="semid"> Semester : </label>
-          <select id="semid" name="id">
+            <label for="semid">  </label>
+            <div class="form-group col-md-6">
+          <select id="semid" name="id" class="form-control">
        <c:forEach items="${semesters}" var="semester">
           <option value="${semester.id}">${semester.semesterName}</option>
           </c:forEach> 
        
           </select>
-             <input type="button" value="Display Blocks" onclick="displayBlocks();return false;">
+        </div>
+              <i class="glyphicon glyphicon-hand-left lg"></i>  <input type="button" value="Display Blocks" class="btn btn-info btn-lg" onclick="displayBlocks();return false;">
         </p>
  
             
@@ -56,24 +58,7 @@
     </thead>
     <tbody>
 
-    <%-- <tr var="stu" items="${students}">
 
-        <td>${stu.id}</td>
-
-        <td>${stu.firstName}</td>
-
-        <td><c:out value="${stu.lastName}"/></td>
-
-        <td><c:out value="${stu.entryDate}"/></td>
-
-        <td><c:out value="${stu.registrationNumber}"/></td>
-
-        <td> <a class="btn btn-primary"><strong>Details</strong></a> </td>
-
-        <td> <a class="btn btn-primary"><strong>Action</strong></a> </td>
-
-
-    </tr> --%>
 
     </tbody>
 </table>

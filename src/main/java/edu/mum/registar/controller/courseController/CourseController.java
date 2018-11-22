@@ -39,7 +39,6 @@ public class CourseController {
 		{
 	model.addAttribute("courses", courseservice.getcourses());
 	return "course/courses";
-
 		}
 
 @GetMapping(value="/showFormForAdd")
@@ -109,13 +108,12 @@ return mav;
 public String searchCustomers(@RequestParam("theSearchName") String theSearchName,Model theModel) 
 
 {
-
-/*Course course = courseservice.geyCourseByCourseCode(theSearchName);
-				
-	if (courseservice.geyCourseByCourseCode(theSearchName)==null) {
+Course course = courseservice.geyCourseByCourseCode(theSearchName);
+			System.out.println("hi");	
+	if (course==null) {
 		throw new NoCoursesFoundException(" You have provided aninvalid input to be searched ");
 		}
-	theModel.addAttribute("editcourses", course);*/
+	theModel.addAttribute("editcourses", course);
 
 	return "course/courses";	
 	

@@ -34,7 +34,7 @@
 									<a class="gn-icon gn-icon-search"><span>Search</span></a>
 								</li>
 								<li>
-									<a class="gn-icon gn-icon-download">Downloads</a>
+									<a class="gn-icon gn-icon-download" href="<spring:url value="/admin/block" />">Semester Choice</a>
 									<ul class="gn-submenu">
 										<li><a class="gn-icon gn-icon-illustrator">Vector Illustrations</a></li>
 										<li><a class="gn-icon gn-icon-photoshop">Photoshop files</a></li>
@@ -54,9 +54,9 @@
 						</div><!-- /gn-scroller -->
 					</nav>
 				</li>
-				<li><a href="<spring:url value="/admin/block" />">CodroBs</a></li>
-				<li><a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Development/HeaderEffects/"><span>Previous Demo</span></a></li>
-				<li><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=16030"><span>Back to the Codrops Article</span></a></li>
+				<li><a href="<spring:url value="/admin/block" />">Go To Blocks Selection</a></li>
+				<li><a class="codrops-icon codrops-icon-prev" href="<spring:url value="/courseList" />"><span>Courses</span></a></li>
+				<li><a class="codrops-icon codrops-icon-drop" href="<spring:url value="/" />"><span>Back to HomePage</span></a></li>
 			</ul>
 		<header>
 				<!-- <h1>Google Nexus Website Menu <span>A sidebar menu as seen on the <a href="http://www.google.com/nexus/index.html">Google Nexus 7</a> page</span></h1>	 -->

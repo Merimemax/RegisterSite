@@ -10,7 +10,7 @@ public class AdminHomeController {
     public String displayHome() {
 
 
-        return "/admin/home";
+        return "redirect:/admin/block";
     }
     @GetMapping("/logins")
     public String login() {

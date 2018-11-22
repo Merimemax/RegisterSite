@@ -21,40 +21,18 @@
     		</p>
     	</div>
  
-  <!--  	<div id="formInput" style="display:none" >  -->
 
-
-	<!-- No action method handled by AJAX-->
-	<%-- <form id="categoryForm" >
-
-			<input type="hidden" name="id" value="0">
-			
-       
-         <p>
-            
-            <label for="semid"> Semester : </label>
-          <select id="semid" name="id">
-       <c:forEach items="${semesters}" var="semester">
-          <option value="${semester.id}">${semester.semesterName}</option>
-          </c:forEach> 
-       
-          </select>
-             <input type="button" value="Display Blocks" onclick="displayBlocks();return false;">
-        </p>
- 
-            
-    
-    </form> --%>
 
 <table id="tbl_products" class="table table-dark ">
     <thead >
     <tr>
         <th scope="col">Id</th>
         <th scope="col">Block Name</th>
-        <th scope="col">Start Date</th>
-        <th scope="col">End Date</th>
+        <th scope="col">Course Name</th>
+        <th scope="col">Professor</th>
        	<th scope="col">Sections</th>
        	<th scope="col">Edit</th>
+       	<th scope="col">Delete</th>
       
     </tr>
     </thead>

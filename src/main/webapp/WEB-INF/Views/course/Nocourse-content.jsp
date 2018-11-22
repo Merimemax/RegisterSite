@@ -9,7 +9,7 @@
   
   <section class="panel panel-default">
   <div class="panel-heading"> 
-<h3 class="panel-title">Exception page </h3> 
+<h3 class="panel-title">Hello Happy Thanks Giving ! you entered a wrong data please enter again  ! </h3> 
 </div> 
 
 
@@ -18,8 +18,8 @@
 
 
 
-<div >
-  <strong>Hi !</strong>${msg}<a href="${pageContext.request.contextPath}/courseList" class="alert-link">Back to Course List </a>.
+<div class="panel-title" >
+  <strong class="panel-title">Hello Happy Thanks Giving ! you entered a wrong data please enter again  !</strong>${msg}<a href="${pageContext.request.contextPath}/courseList" class="alert-link">Back to Course List </a>.
 </div>
 
 

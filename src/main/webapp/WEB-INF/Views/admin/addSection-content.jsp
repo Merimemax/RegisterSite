@@ -15,7 +15,7 @@
   
 <form:form  modelAttribute="newSection" method="POST" action="/admin/section/add/${blockid}" class="form-horizontal" role="form" >
 <div style="text-align: center;">
-		<form:errors path="*" class="err"/>
+		<form:errors style="color:red;font-size:12px" path="*" class="err"/>
 	</div>
 	<div class="form-group">
     <label for="tech" class="col-sm-3 control-label">Section Name :</label>
@@ -29,7 +29,7 @@
 	   <form:option value="V-47" label="V-47"/>
    </form:select>
    <div style="text-align: center;">
-		<form:errors path="sectionNo" class="err" />
+		<form:errors path="sectionNo" style="color:red;font-size:12px"  class="err" />
 	</div>
     </div>
   </div> <!-- form-group // -->
@@ -40,7 +40,7 @@
       <form:input class="form-control" path="capacity" id="name"  />
     </div>
     <div class="err"  style="text-align: center;">
-		<form:errors path="capacity" />
+		<form:errors path="capacity" style="color:red;font-size:12px"/>
 	</div>
   </div> <!-- form-group // -->
   

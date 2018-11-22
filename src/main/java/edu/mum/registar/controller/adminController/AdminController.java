@@ -1,10 +1,15 @@
 package edu.mum.registar.controller.adminController;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -70,12 +75,17 @@ public class AdminController {
 		
 	}
 	
+	
+	
+	
+	
 	@GetMapping("/section/{sectionid}")
 	public String getSectionStudents(@PathVariable("sectionid") long id,Model model) {
 		Section section=sectionService.getOne(id);
 		List<Student> students=section.getStudents();
-		System.out.println(students.size());
 		model.addAttribute("students",students );
+		model.addAttribute("capacity",section.getCapacity() );
+		model.addAttribute("secid",id);
 		return "/admin/students";
 		
 	}
@@ -91,6 +101,8 @@ public class AdminController {
 	@PostMapping("/section/add/{blockid}")
 	public String saveSectionToBlock(@Valid @ModelAttribute("newSection") Section section,BindingResult result,
 			@PathVariable("blockid") long id,Model model,RedirectAttributes redirectAttribute) {
+		
+		
 		if(result.hasErrors()) {
 			model.addAttribute("blockid",id);
 			model.addAttribute("courses", courseService.getcourses());
@@ -99,12 +111,16 @@ public class AdminController {
 		}
 		Block block=blockService.getOne(id);
 		
+		
 		Course course=courseService.getcoursesbyID(section.getCourse().getId());
 		Faculty faculty=facultyService.findById(section.getProffessor().getId());
 		
 		section.setCourse(course);
 		section.setProffessor(faculty);
+		block.getSections();
+		//boolean flag=
 		block.addSection(section);
+		//if(flag) throw new IllegalArgumentException("The section is already assigned.");
 		sectionService.save(section);
 		blockService.save(block);
 
@@ -139,5 +155,54 @@ public class AdminController {
 	}
 	
 	
+	@GetMapping("/algorithm/{secid}")
+	public String runalgorithm(@PathVariable("secid") long secid,Model model,HttpServletRequest http) {
+		Section section=sectionService.getOne(secid);
+		String c=http.getParameter("algoNo");
+		System.out.println("hhhhhhhhhh"+ c);
+		List<Student> estudents=section.getStudents();
+		
+		if(!(estudents.size()<section.getCapacity())) {
+			
+			if(c=="FIFO") {
+				System.out.println("hhhhhhhhhh");
+				Collections.sort(estudents, new Comparator<Student>(){
+
+					  public int compare(Student o1, Student o2)
+					  {
+					     return Integer.valueOf(o1.getRegistrationNumber()).compareTo(o2.getRegistrationNumber());
+					  }
+					});
+				
+				for(int i=0;i<estudents.size();i++) {
+					if(section.getCapacity()<i) {
+						section.getWaitedlisted().add(estudents.get(i));
+						estudents.remove(i);
+					}
+				}
+			}
+			
+			
+			sectionService.save(section);
+			}
+			
+				Section sec=sectionService.getOne(secid);
+				List<Student> enroll=sec.getStudents();
+				List<Student> wait=sec.getWaitedlisted();
+				model.addAttribute("students",enroll );
+				model.addAttribute("waitlisted",wait );
+				model.addAttribute("capacity",sec.getCapacity() );
+				model.addAttribute("secid",secid);
+				return "/admin/students";
+					
+				
+			
+		
+			
 	
+		
+		
 }
+}
+	
+	

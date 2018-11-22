@@ -3,6 +3,7 @@ package edu.mum.registar.service.impl.sectionServiceImpl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import edu.mum.registar.domain.Section;
@@ -32,6 +33,7 @@ public class SectionServiceImpl implements SectionService {
 	}
 
 	@Override
+	@PreAuthorize("hasRole('ADMIN')")
 	public void delete(long id) {
 		// TODO Auto-generated method stub
 		sectionRepository.deleteById(id);

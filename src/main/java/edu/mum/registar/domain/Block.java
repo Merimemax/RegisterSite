@@ -43,12 +43,26 @@ public class Block {
     }
     
     public void addSection(Section section) {
+    	if( section.getId()==0) {
     	for(int i=0;i<this.sections.size();i++) {
-    		if(section.getId()==this.sections.get(i).getId())
-    			//this.sections.remove(i);
+    		if(section.getSectionNo().equals(this.sections.get(i).getSectionNo())) {
+    			/*System.out.println("giooooooooooooo");
+    			return true;*/
     			throw new IllegalArgumentException("The section is already assigned.");
+    		}
+    			
+    				//	throw new IllegalArgumentException("The section is already assigned.");
+    	}
+    	}
+    	for(int i=0;i<this.sections.size();i++) {
+    		if(section.getId()==this.sections.get(i).getId()) {
+    			this.sections.remove(i);
+    		}
+    			
+    				//	throw new IllegalArgumentException("The section is already assigned.");
     	}
     	this.sections.add(section);
+    	//return false;
     }
 
 	public void removeSection(long id) {

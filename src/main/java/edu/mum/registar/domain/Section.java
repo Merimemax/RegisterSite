@@ -7,20 +7,36 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import edu.mum.registar.validator.InvalidCapacity;
+
 @Entity
 public class Section {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private long id;
     @NotBlank(message="Section Name should Not be Empty")
     private String sectionNo;
-    @NotNull(message="capacity should not be empty")
-    private Integer capacity;
+ 
+    
+    @InvalidCapacity
+    private int capacity;
     
     @OneToMany( fetch = FetchType.LAZY)
     private List<Student> students = new ArrayList<>();
+    
+    @OneToMany( fetch = FetchType.LAZY)
+    private List<Student> waitedlisted = new ArrayList<>();
+    
 
-    public void addStudent(Student student){
+    public List<Student> getWaitedlisted() {
+		return waitedlisted;
+	}
+
+	public void setWaitedlisted(List<Student> waitedlisted) {
+		this.waitedlisted = waitedlisted;
+	}
+
+	public void addStudent(Student student){
         students.add(student);
     }
     @OneToOne
@@ -29,19 +45,19 @@ public class Section {
     @OneToOne
     private Faculty proffessor;
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
-    public Integer getCapacity() {
+    public int getCapacity() {
   		return capacity;
   	}
 
 
-  	public void setCapacity(Integer capacity) {
+  	public void setCapacity(int capacity) {
   		this.capacity = capacity;
   	}
 

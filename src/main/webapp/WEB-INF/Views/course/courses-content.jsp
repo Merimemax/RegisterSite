@@ -10,20 +10,16 @@
           
    <div><input type="button" value="AddCourse"	class="btn btn-info btn-lg btn-block" onclick="window.location.href='showFormForAdd';return false;"/></div> 
         
-        
-        
-  
-       
-      
+   
        <div>
        <br>
 		<br>
-		<form:form action="search" method="POST">
+		<form action="search" method="POST">
 			Search Courses: <input type="text" name="theSearchName" />
 				
-				<input type="submit" value="Search" class="add-button" />
+				<input type="submit"  class="btn btn-info" />
 			
-			</form:form>
+			</form>
 			<br>
 <br>
 </div>
@@ -62,7 +58,7 @@
 						<td> ${course.courseName} </td>
 						<td> ${course.credit} </td>
 						<td><a class="glyphicon glyphicon-pencil wht" href="${updatelink}">  </a><td>
-						<td><a class= "glyphicon glyphicon-trash wht" href="${deletelink}"></a></td>
+						<td><a class= "glyphicon glyphicon-trash wht" href="${deletelink}" onclick="if(!(confirm('Are you sure you wnat to delete this customer')))return flase"></a></td>
 						
 					</tr>
 				
