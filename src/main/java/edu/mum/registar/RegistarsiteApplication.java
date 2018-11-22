@@ -9,6 +9,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import org.springframework.context.annotation.Bean;
+
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
@@ -23,7 +24,6 @@ import org.springframework.web.util.UrlPathHelper;
 import edu.mum.registar.interceptor.CourseInterceptor;
 
 
-
 @SpringBootApplication
 public class RegistarsiteApplication implements WebMvcConfigurer {
 
@@ -35,6 +35,12 @@ public class RegistarsiteApplication implements WebMvcConfigurer {
 
     
     /*This is a place for Internalization message*/
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(localeChangeInterceptor()); //this is for language
+        registry.addInterceptor(CourseInterceptor()).addPathPatterns("/courseList/**");        
+        
+    }
 
     @Bean
     public SessionLocaleResolver localeResolver() {
@@ -90,12 +96,7 @@ public class RegistarsiteApplication implements WebMvcConfigurer {
          return new CourseInterceptor();
     }
 
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(localeChangeInterceptor()); //this is for language
-        registry.addInterceptor(CourseInterceptor()).addPathPatterns("/courseList/**");        
-        
-    }
+  
 
 	
 	}

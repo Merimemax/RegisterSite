@@ -1,4 +1,4 @@
-package edu.mum.registar.config;
+/*package edu.mum.registar.config;
 
 //import edu.mum.registar.interceptor.ValidUserInterceptor;
 //import org.springframework.context.annotation.Configuration;
@@ -23,3 +23,4 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 .addResourceLocations("/resources/");
     }
 }
+*/
