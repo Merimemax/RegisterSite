@@ -22,9 +22,12 @@
 <body>
 
 <h1> </h1>
-<a href="?lang=en" >English</a> | <a href="?lang=ti_ER" >Tigrigna</a>
+
 <form:form modelAttribute="credentials">
-    <h3>Please Log In</h3>
+
+   <a href="?lang=en" >English</a> | <a href="?lang=ti_ER" >Tigrigna(ትግርኛ)</a><hr>
+    <h3><spring:message code="faculty.PleaseLogIn"/></h3>
+    <br><br>
     <form:errors path="*" cssStyle="color: #f00;"/>
     <div class="form-group">
         <label for="exampleInputEmail1"><spring:message code="faculty.form.email"/></label>
@@ -34,7 +37,7 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
+        <label for="exampleInputPassword1"><spring:message code="faculty.form.password"/></label>
         <form:input type="password" path="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
         <div>
             <form:errors path="password" cssStyle="color: #f00;"/>
@@ -42,9 +45,9 @@
     </div>
     <div class="form-group form-check">
         <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+        <label class="form-check-label" for="exampleCheck1"><spring:message code="faculty.form.rememberme"/></label>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary"><spring:message code="faculty.submit"/></button>
 </form:form>
 
 </body>

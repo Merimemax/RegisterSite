@@ -31,7 +31,7 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public List<Student> findAllStudentByFacultyId(String faculty_id) {
+    public List<Student> findAllStudentByFacultyId(long faculty_id) {
         return (List<Student>) studentRepository.findStudentByStudentFacultyId(faculty_id);
     }
 

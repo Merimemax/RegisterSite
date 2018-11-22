@@ -1,0 +1,44 @@
+body {
+    background-color: #5f6f81;
+    margin-left: 5px;
+}
+h1 {
+
+
+    font-style: italic;
+    font-weight: bold;
+    margin-left: 15px;
+}
+h1 {
+
+text-align: center;
+    font-style: italic;
+    font-weight: bold;
+    margin-left: 15px;
+}
+p{
+    font-weight: bold;
+    margin-left: 15px;
+
+}
+h3{
+    margin-left: 15px;
+    font-weight: bold;
+}
+
+p.solid {border-style: solid;
+border-color(black);
+
+}
+#commentarea{
+    padding-top: 15px;
+    margin-left: 15px;
+}
+#su{
+    color: darkred;
+
+    margin-left: 35%;
+    margin-bottom: 135%;
+    padding-top: 40px;
+
+}
