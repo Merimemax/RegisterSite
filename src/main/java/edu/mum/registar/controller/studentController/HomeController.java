@@ -65,11 +65,7 @@ public class HomeController {
 //            System.out.println("semester selected by the student " + s);
 //            semesterList.add(semesterService.getOne(Long.parseLong(s)));
 //        }
-
-
 //        student.setSemesterList(semesterList);
-
-
 //        System.out.println("chekcing drop down is saving " + student.getSemesterList().get(0).getSemesterName());
         credentialService.saveCredential(credential);
         studentService.save(student);
