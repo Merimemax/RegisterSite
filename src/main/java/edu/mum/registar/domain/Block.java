@@ -45,8 +45,17 @@ public class Block {
     public void addSection(Section section) {
     	for(int i=0;i<this.sections.size();i++) {
     		if(section.getId()==this.sections.get(i).getId())
-    			this.sections.remove(i);
+    			//this.sections.remove(i);
+    			throw new IllegalArgumentException("The section is already assigned.");
     	}
     	this.sections.add(section);
     }
+
+	public void removeSection(long id) {
+		for(int i=0;i<this.sections.size();i++) {
+    		if(id==this.sections.get(i).getId())
+    			this.sections.remove(i);
+    	}
+		
+	}
 }

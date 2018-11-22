@@ -39,8 +39,8 @@
     <div class="col-sm-9">
       <form:input class="form-control" path="capacity" id="name"  />
     </div>
-    <div style="text-align: center;">
-		<form:errors path="capacity" class="err" />
+    <div class="err"  style="text-align: center;">
+		<form:errors path="capacity" />
 	</div>
   </div> <!-- form-group // -->
   

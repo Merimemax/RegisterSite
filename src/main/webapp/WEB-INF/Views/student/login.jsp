@@ -20,8 +20,6 @@
 </head>
 <body>
 
-<h1> </h1>
-
 <form:form modelAttribute="credentials">
     <h3>Please Log In</h3>
     <form:errors path="*" cssStyle="color: #f00;"/>

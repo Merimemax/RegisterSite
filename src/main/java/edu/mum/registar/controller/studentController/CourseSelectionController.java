@@ -1,15 +1,15 @@
 package edu.mum.registar.controller.studentController;
 
 import edu.mum.registar.domain.*;
+import edu.mum.registar.service.sectionService.SectionService;
 import edu.mum.registar.service.semesterService.SemesterService;
 import edu.mum.registar.service.studentService.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +22,9 @@ public class CourseSelectionController {
 
     @Autowired
     StudentService studentService;
+
+    @Autowired
+    SectionService sectionService;
 
     private static List<Semester> semesters() {
         List<Semester> semesterList = new ArrayList<>();
@@ -76,7 +79,6 @@ public class CourseSelectionController {
         feb.setSections(sectionList);
 
 
-
         Block march = new Block();
         march.setId(Long.valueOf(2));
         march.setBlockName("Feb2019");
@@ -116,17 +118,34 @@ public class CourseSelectionController {
     }
 
     @GetMapping("/selectCourse")
-    public String selectCourse(Model model) {
+    public String selectCourse(Model model, HttpServletRequest request, @RequestParam("studid") long id) {
         List<Semester> semesterList = CourseSelectionController.semesters();
-        model.addAttribute("semester", semesterList);
-        //  List<Semester> semesterList = semesterService.getSemesters();
-//        model.addAttribute("semester", semesterService.getSemesters());
+
+        Student student = (Student) request.getSession().getAttribute("student");
+
+
+        model.addAttribute("semester", semesterService.getOne(id));
         return "student/courseOption";
     }
 
-    public String enrolledcourses(String studentId){
-        studentService.findStudentById(Long.parseLong(studentId)).getWaiveredCourse();
-        return "";
+    @PostMapping(value = "/enroll")
+   public @ResponseBody String  enrolledcourse(@RequestParam("id") String id) {
+
+        String[] toBeEnroll = id.split("-");
+        String stuId = toBeEnroll[0];
+        String secId = toBeEnroll[1];
+
+//        Section section = sectionService.getOne(Long.parseLong(secId));
+//        Student student = studentService.findStudentById(Long.parseLong(secId));
+//        section.addStudent(student);
+//        student.enrolleCourse(section.getCourse());
+//
+//        sectionService.save(section);
+//        studentService.save(student);
+
+        System.out.println("enrolled " + stuId + " " + secId);
+
+        return "Success";
     }
 
 }
