@@ -1,6 +1,7 @@
 package edu.mum.registar.controller.courseController;
 
-import java.util.List; 
+import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -55,18 +56,23 @@ return "course/courseForm";
 @PostMapping (value="/saveCourse")
 public String saveCourse(@Valid @ModelAttribute("Course") Course course, BindingResult bindingResult, RedirectAttributes redirect,Model model)
 {
-	if (bindingResult.hasErrors()) {
-		return "course/courseForm";
+	
+	
+	if (bindingResult.getErrorCount()==0 ||(bindingResult.getErrorCount()==1 && course.getId()!=0 && bindingResult.getFieldError().getField().equalsIgnoreCase("courseCode"))) {
+		
+		Course prerequisite=courseservice.getcoursesbyID(course.getPrerequiste().getId());
+		System.out.print("hi"+ course.getId());
+		course.setPrerequiste(prerequisite);
+		
+		courseservice.save(course);
+		redirect.addFlashAttribute("courses",courseservice.getcourses());
+		System.out.println("saved");
+		
+		return "redirect:courseList";
+		
 	}
-	Course prerequisite=courseservice.getcoursesbyID(course.getPrerequiste().getId());
-	System.out.print("hi");
-	course.setPrerequiste(prerequisite);
 	
-	courseservice.save(course);
-	redirect.addFlashAttribute("courses",courseservice.getcourses());
-	System.out.println("saved");
-	
-	return "redirect:courseList";
+	return "course/courseForm";
 	}
 
 @GetMapping(value="/showFormForUpdate")
@@ -105,13 +111,14 @@ public String searchCustomers(@RequestParam("theSearchName") String theSearchNam
 
 {
 
-	List< Course> course = courseservice.geyCourseByCourseCode(theSearchName);
-				
-	if (course.isEmpty()) {
-		throw new NoCoursesFoundException(" You have provided aninvalid input to be searched ");
-		}
-	theModel.addAttribute("courses", course);
-
-	return "course/courseList";		
+//	List< Course> course = courseservice.geyCourseByCourseCode(theSearchName);
+//				
+//	if (course.isEmpty()) {
+//		throw new NoCoursesFoundException(" You have provided aninvalid input to be searched ");
+//		}
+//	theModel.addAttribute("courses", course);
+//
+//	return "course/courseList";	
+	return "";
 }
 }

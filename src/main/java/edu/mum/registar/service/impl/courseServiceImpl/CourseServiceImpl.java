@@ -10,12 +10,12 @@ import edu.mum.registar.domain.Course;
 import edu.mum.registar.repository.CourseRepository;
 import edu.mum.registar.service.courseService.CourseService;
 @Service
-@Transactional
+
 public class CourseServiceImpl implements CourseService{
 	@Autowired 
 	CourseRepository courserepository;
 
-
+	@Transactional
 	@Override
 	public void save(Course course) {
 		
@@ -42,9 +42,9 @@ public class CourseServiceImpl implements CourseService{
 	}
 
 	@Override
-	public List<Course> geyCourseByCourseCode(String value) {
+	public Course geyCourseByCourseCode(String value) {
 		// TODO Auto-generated method stub
-		return (List<Course>) courserepository.findBycourseCode(value);
+		return  courserepository.findBycourseCode(value);
 	}
 
 	

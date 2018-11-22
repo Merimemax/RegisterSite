@@ -14,6 +14,6 @@ import edu.mum.registar.domain.Course;
 public interface CourseRepository extends CrudRepository<Course,Long>
 {
 	
-	List<Course> findBycourseCode(String courseCode);
+	Course findBycourseCode(String courseCode);
 	
 }
