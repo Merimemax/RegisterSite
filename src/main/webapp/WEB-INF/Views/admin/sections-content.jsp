@@ -73,7 +73,8 @@
         <td> <a class="btn btn-primary" href="<spring:url value="/admin/section/${section.id}" />"  ><span style='color:white;font-size: 11px'><strong>Students</strong></span></a> </td>
 
 		<td> <a class="glyphicon glyphicon-pencil wht" href="<spring:url value="/admin/section/edit/${blockid}?sectionid=${section.id}" />"  ></a> </td>
-		
+		<td> <a class="glyphicon glyphicon-trash wht" href="<spring:url value="/admin/section/delete/${blockid}?sectionid=${section.id}" />"  ></a> </td>
+	
     </tr> 
 </c:forEach>
     </tbody>
