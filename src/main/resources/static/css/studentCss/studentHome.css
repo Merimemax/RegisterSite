@@ -1,6 +1,10 @@
 body {
     background-color: #5f6f81;
 }
-side {
-    height: max-content;
+
+.courseList{
+    width: 70%;
+    margin-top: 30px;
+    float: left;
+
 }

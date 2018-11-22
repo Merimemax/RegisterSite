@@ -18,7 +18,8 @@ public class facultyServiceImpl implements FacultyService {
     @Override
     public Faculty findFacultyByEmail(String email) {
         return facultyRepository.findFacultyByEmail(email);
-    }
+
+           }
 
 	@Override
 	public List<Faculty> findAllfaculty() {
@@ -31,4 +32,5 @@ public class facultyServiceImpl implements FacultyService {
 		
 		return facultyRepository.findById(id).get();
 	}
+
 }

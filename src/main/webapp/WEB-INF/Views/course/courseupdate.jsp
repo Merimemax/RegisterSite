@@ -12,7 +12,7 @@
 
 
 <div>
-<h3>Save Course </h3>
+<h3> update Course </h3>
 <form:form action="saveCourse" modelAttribute="Course" method="post">
 <table>
 	<tbody>
@@ -31,7 +31,12 @@
 
 <tr>
 <td> <label> Pre_Requiste Course:	</label></td>
-<td><form:input path ="prerequiste" value="${course.prerequiste}"/> </td>
+<td>
+<form:select  path="prerequiste.id">
+<form:option selected="selected" value="0" label="--Select prerequisite"/>
+<form:options selected="selected"  items="${courses}" itemLabel="courseName" itemValue="id"/>
+</form:select>
+<td>
 </tr>
 
 <tr>

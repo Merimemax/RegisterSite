@@ -3,6 +3,7 @@ package edu.mum.registar.controller.studentController;
 import edu.mum.registar.domain.Credential;
 import edu.mum.registar.domain.Role;
 import edu.mum.registar.domain.Student;
+import edu.mum.registar.service.credentialService.CredentialService;
 import edu.mum.registar.service.studentService.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -24,6 +25,9 @@ public class HomeController {
     @Autowired
     StudentService studentService;
 
+    @Autowired
+    CredentialService credentialService;
+
     @GetMapping(value = "/")
     public String studentHome(){
         return "student/index";
@@ -40,10 +44,6 @@ public class HomeController {
         if(bindingResult.hasErrors()){
             return "student/singup";
         }
-        System.out.println("post method  called !");
-
-//        studentService.save(student);
-
 
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String hashedPassword = passwordEncoder.encode(request.getParameter("password"));
@@ -52,8 +52,9 @@ public class HomeController {
         credential.setUserName(student.getEmail());
         credential.setPassword(hashedPassword);
 
+        credentialService.saveCredential(credential);
+        //        studentService.save(student);
         redirectAttributes.addFlashAttribute("student",student );
-
         return "redirect:/home";
     }
 

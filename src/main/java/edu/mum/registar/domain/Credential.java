@@ -10,7 +10,7 @@ public class Credential {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="user_id")
-    private Long id;
+    private long id;
 
     @NotEmpty(message = "User Name can be empty")
     @Email
