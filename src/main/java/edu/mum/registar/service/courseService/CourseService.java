@@ -14,6 +14,10 @@ public interface CourseService {
 	public Course getcoursesbyID(long id);
 
 	void deletecourse(long id);
+
+	public Course geyCourseByCourseCode(String value);
+	
+
 	
 	
 

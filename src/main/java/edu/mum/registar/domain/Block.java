@@ -43,6 +43,10 @@ public class Block {
     }
     
     public void addSection(Section section) {
+    	for(int i=0;i<this.sections.size();i++) {
+    		if(section.getId()==this.sections.get(i).getId())
+    			this.sections.remove(i);
+    	}
     	this.sections.add(section);
     }
 }

@@ -15,13 +15,14 @@
   
 <form:form  modelAttribute="newSection" method="POST" action="/admin/section/add/${blockid}" class="form-horizontal" role="form" >
 <div style="text-align: center;">
-		<form:errors path="*" class="err"/>
+		<form:errors path="*" class="err" />
 	</div>
+	<form:input type="hidden" value="${sec.id}" path="id" />
 	<div class="form-group">
     <label for="tech" class="col-sm-3 control-label">Section Name :</label>
     <div class="col-sm-3">
    <form:select path="sectionNo" class="form-control">
-	 <form:option value="" label="----Select----"/>
+	 <form:option value="${sec.sectionNo}" label="${sec.sectionNo}"/>
 	 <form:option value="M-115" label="M-115"/>
 	 <form:option value="M-218" label="M-218"/>
 	  <form:option value="V-32" label="V-32"/>
@@ -37,9 +38,9 @@
    <div class="form-group">
     <label for="name" class="col-sm-3 control-label">Capacity :</label>
     <div class="col-sm-9">
-      <form:input class="form-control" path="capacity" id="name"  />
+      <form:input class="form-control" path="capacity" id="name" value="${sec.capacity}" />
     </div>
-    <div style="text-align: center;">
+   <div style="text-align: center;">
 		<form:errors path="capacity" class="err" />
 	</div>
   </div> <!-- form-group // -->
@@ -48,9 +49,10 @@
     <label for="tech" class="col-sm-3 control-label">Lesson :</label>
     <div class="col-sm-3">
    <form:select path="course.id" class="form-control">
+   <form:option value="${sec.course.id}" label="${sec.course.courseName }" />
   	 <form:options items="${courses}" itemValue="id" itemLabel="courseName"/>
 	</form:select>
-    <div style="text-align: center;">
+  <div style="text-align: center;">
 		<form:errors path="course.id" class="err" />
 	</div>
     </div>
@@ -60,6 +62,7 @@
     <label for="tech" class="col-sm-3 control-label">Professor :</label>
     <div class="col-sm-3">
    <form:select path="proffessor.id" class="form-control">
+    <form:option value="${sec.proffessor.id}" label="${sec.proffessor.firstName}" />
 	 <form:options items="${professors}" itemValue="id" itemLabel="firstName"/>
 	</form:select>
    <div style="text-align: center;">
@@ -73,8 +76,8 @@
   <hr>
   <div class="form-group">
     <div class="col-sm-offset-3 col-sm-9">
-     <!--  <input type="submit" class="btn btn-primary">Save Section</button> -->
-      <input id="submit" class="btn btn-primary" type="submit" value="Save Section">
+  <!--     <button type="submit" class="btn btn-primary">Save Section</button> -->
+  <input id="submit" class="btn btn-primary" type="submit" value="Save Section">
     </div>
   </div> <!-- form-group // -->
 </form:form>

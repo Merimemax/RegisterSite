@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+
 import edu.mum.registar.domain.Course;
 import edu.mum.registar.service.courseService.CourseService;
 
@@ -33,13 +34,13 @@ public class CourseController {
 	 return courseservice.getcourses();
 	}
 
-@GetMapping(value="/courseList")
-public String course(Model model)
-{
+	@GetMapping(value="/courseList")
+	public String course(Model model)
+		{
 	
 	return "course/courseList";
 
-}
+		}
 
 @GetMapping(value="/showFormForAdd")
 public String showForm(@ModelAttribute("Course") Course course,Model model) 
@@ -55,24 +56,29 @@ return "course/courseForm";
 @PostMapping (value="/saveCourse")
 public String saveCourse(@Valid @ModelAttribute("Course") Course course, BindingResult bindingResult, RedirectAttributes redirect,Model model)
 {
-	if (bindingResult.hasErrors()) {
-		return "course/courseForm";
+	
+	
+	if (bindingResult.getErrorCount()==0 ||(bindingResult.getErrorCount()==1 && course.getId()!=0 && bindingResult.getFieldError().getField().equalsIgnoreCase("courseCode"))) {
+		
+		Course prerequisite=courseservice.getcoursesbyID(course.getPrerequiste().getId());
+		System.out.print("hi"+ course.getId());
+		course.setPrerequiste(prerequisite);
+		
+		courseservice.save(course);
+		redirect.addFlashAttribute("courses",courseservice.getcourses());
+		System.out.println("saved");
+		
+		return "redirect:courseList";
+		
 	}
-	Course prerequisite=courseservice.getcoursesbyID(course.getPrerequiste().getId());
-	System.out.print("hi");
-	course.setPrerequiste(prerequisite);
 	
-	courseservice.save(course);
-	redirect.addFlashAttribute("courses",courseservice.getcourses());
-	System.out.println("saved");
-	
-	return "redirect:courseList";
+	return "course/courseForm";
 	}
 
 @GetMapping(value="/showFormForUpdate")
 public String updateform(@ModelAttribute("Course") Course cours,@RequestParam("id") long id ,Model model)throws NoCoursesFoundException
 {
-	 Course course=courseservice.getcoursesbyID(1000);
+	 Course course=courseservice.getcoursesbyID(id);
 	System.out.println(course);
 	if (course==null) {
 		throw new NoCoursesFoundException(" we can not find the course you are trying to edit ");
@@ -92,10 +98,27 @@ public String delete(@RequestParam("id")long id,Model model)
 public ModelAndView handleError(HttpServletRequest req,NoCoursesFoundException exception) {
 ModelAndView mav = new ModelAndView();
 mav.addObject("msg", exception.getMessage());
-System.out.println("hi");
 
 mav.addObject("url", req.getRequestURL());
 mav.setViewName("course/NocourseFound");
 return mav;
+}
+
+
+@PostMapping("/search")
+public String searchCustomers(@RequestParam("theSearchName") String theSearchName,
+								Model theModel) throws NoCoursesFoundException
+
+{
+
+//	List< Course> course = courseservice.geyCourseByCourseCode(theSearchName);
+//				
+//	if (course.isEmpty()) {
+//		throw new NoCoursesFoundException(" You have provided aninvalid input to be searched ");
+//		}
+//	theModel.addAttribute("courses", course);
+//
+//	return "course/courseList";	
+	return "";
 }
 }
