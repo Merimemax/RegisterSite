@@ -31,4 +31,10 @@ public class SectionServiceImpl implements SectionService {
 		return sectionRepository.save(section);
 	}
 
+	@Override
+	public void delete(long id) {
+		// TODO Auto-generated method stub
+		sectionRepository.deleteById(id);
+	}
+
 }

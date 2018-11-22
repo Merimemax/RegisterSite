@@ -104,8 +104,8 @@ public class AdminController {
 		
 		section.setCourse(course);
 		section.setProffessor(faculty);
-		sectionService.save(section);
 		block.addSection(section);
+		sectionService.save(section);
 		blockService.save(block);
 
 		redirectAttribute.addAttribute("blockid",id);
@@ -126,6 +126,18 @@ public class AdminController {
 		return "/admin/editSection";
 		
 	}
+	
+	@GetMapping("/section/delete/{blockid}")
+	public String deleteSection(@PathVariable("blockid") long blockid,
+			@RequestParam("sectionid") long id,Model model) {
+		sectionService.delete(id);
+		Block block=blockService.getOne(blockid);
+		block.removeSection(id);
+		blockService.save(block);
+		return "redirect:/admin/section?blockid="+blockid;
+		
+	}
+	
 	
 	
 }
