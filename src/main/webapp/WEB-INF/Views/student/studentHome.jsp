@@ -44,8 +44,20 @@
     <a class="btn btn-info" id="approvedWaivers" href="/student/approvedWaivers">View Approved Waivers</a>
     <a class="btn btn-info" id="enrolledCourse" href="/student/enrolledcourses?id='${student.id}'">View Enrolled Courses</a>
     <a class="btn btn-info" id="registrationNumber" href="/student/selectCourse">View Registration Number</a>
-    <a class="btn btn-info" id="availableCourses" href="/student/selectCourse">View Available Courses</a>
+
 </div>
+
+<section id="waivered">
+
+</section>
+
+<section id="enrolled">
+
+</section>
+
+<section id="registrationNum">
+
+</section>
 
 </body>
 </html>
