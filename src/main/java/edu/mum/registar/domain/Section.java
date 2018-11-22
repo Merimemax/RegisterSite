@@ -3,14 +3,18 @@ package edu.mum.registar.domain;
 import java.util.List;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Section {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotBlank(message="Section Name should Not be Empty")
     private String sectionNo;
-    private int capacity;
+    @NotNull(message="capacity should not be empty")
+    private Integer capacity;
     
     @OneToMany( fetch = FetchType.LAZY)
     private List<Student> students;
@@ -27,12 +31,12 @@ public class Section {
     public void setId(Long id) {
         this.id = id;
     }
-    public int getCapacity() {
+    public Integer getCapacity() {
   		return capacity;
   	}
 
 
-  	public void setCapacity(int capacity) {
+  	public void setCapacity(Integer capacity) {
   		this.capacity = capacity;
   	}
 

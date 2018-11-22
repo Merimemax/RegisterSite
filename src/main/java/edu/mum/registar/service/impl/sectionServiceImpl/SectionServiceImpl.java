@@ -25,4 +25,10 @@ public class SectionServiceImpl implements SectionService {
 		return sectionRepository.findById(id).get();
 	}
 
+	@Override
+	public Section save(Section section) {
+		// TODO Auto-generated method stub
+		return sectionRepository.save(section);
+	}
+
 }

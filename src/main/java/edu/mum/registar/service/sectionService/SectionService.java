@@ -8,5 +8,6 @@ import edu.mum.registar.domain.Section;
 public interface SectionService {
 	List<Section> getSections();
 	Section getOne(long id);
+	Section save(Section section);
 
 }

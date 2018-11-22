@@ -9,3 +9,8 @@ body {
 .wht {
     color: white !important;
 }
+
+.err{
+	font-size: 10px;
+	color: red;
+}
