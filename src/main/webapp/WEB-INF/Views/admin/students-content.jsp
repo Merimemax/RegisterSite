@@ -4,10 +4,7 @@
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    
  <link rel="stylesheet" type="text/css"href="<spring:url value="/css/adminCss/blocks.css" />"/>
 
-<h1> Sections  </h1>
-<a href="<spring:url value="/admin/section/add/${blockid}" />" class="btn btn-info ">
-          <span class="glyphicon glyphicon-plus"></span> Add Section 
-        </a>
+<h1> Students</h1>
 
 
  
@@ -54,26 +51,24 @@
         <th scope="col">Start Date</th>
         <th scope="col">End Date</th>
        	<th scope="col">Sections</th>
-       	<th scope="col">Edit</th>
       
     </tr>
     </thead>
     <tbody>
-  <c:forEach items="${sections}" var="section">
+  <c:forEach items="${students}" var="student">
    <tr >
 
-        <td>${section.id}</td>
+        <td>${student.firstName}</td>
 
-        <td>${section.sectionNo}</td>
+        <td>${student.registrationNumber}</td>
 
-        <td><c:out value="${section.course.courseName}"/></td>
+        <td><c:out value="${student.dateOfBirth}"/></td>
 
-        <td><c:out value="${section.proffessor.firstName}"/></td>
+        <td><c:out value="${student.email}"/></td>
      
-        <td> <a class="btn btn-primary" href="<spring:url value="/admin/section/${section.id}" />"  ><span style='color:white;font-size: 11px'><strong>Students</strong></span></a> </td>
+        <td> <a class="btn btn-primary" href="<spring:url value="/admin/section/${section.id}" />"  ><strong>Students</strong></a> </td>
 
-		<td> <a class="glyphicon glyphicon-pencil wht" href="<spring:url value="/admin/section/edit/${blockid}?sectionid=${section.id}" />"  ></a> </td>
-		
+
     </tr> 
 </c:forEach>
     </tbody>

@@ -82,4 +82,12 @@ public class Faculty {
     public void setAdvicees(List<Student> advicees) {
         this.advicees = advicees;
     }
+
+    public void addCourse(Course course){
+        courses.add(course);
+    }
+    public void addStudent(Student student){
+        advicees.add(student);
+
+    }
 }

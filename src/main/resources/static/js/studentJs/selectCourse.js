@@ -13,10 +13,12 @@ $(function() {
   function selectCourse() {
     alert("Are you ready to select course!! " + url );
 
-    $.get(url + "/courses", function (courses) {
+    $.get(url + "/courses", function (semester) {
 
-        alert("Here is your result!! ");
-    });
+        alert("Here is your result!! " + semester.semesterName);
+    },error(function () {
+        alert("Error cant' find semester")
+    }));
   }
 
     function showPreReq() {

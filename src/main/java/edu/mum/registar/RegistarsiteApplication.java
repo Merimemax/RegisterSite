@@ -1,14 +1,17 @@
 package edu.mum.registar;
 
+
 import java.util.Locale;  
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.MessageSource;
+
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
-import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -19,34 +22,34 @@ import org.springframework.web.util.UrlPathHelper;
 
 import edu.mum.registar.interceptor.CourseInterceptor;
 
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 
 @SpringBootApplication
-public class RegistarsiteApplication extends SpringBootServletInitializer implements WebMvcConfigurer{
+public class RegistarsiteApplication implements WebMvcConfigurer {
+
 
 
     public static void main(String[] args) {
         SpringApplication.run(RegistarsiteApplication.class, args);
     }
+
     
     /*This is a place for Internalization message*/
-    
+
     @Bean
     public SessionLocaleResolver localeResolver() {
-      SessionLocaleResolver localeResolver = new SessionLocaleResolver();
-      localeResolver.setDefaultLocale(Locale.US);
-      return localeResolver;
+        SessionLocaleResolver localeResolver = new SessionLocaleResolver();
+        localeResolver.setDefaultLocale(Locale.US);
+        return localeResolver;
     }
-   
+
     @Bean
     public LocaleChangeInterceptor localeChangeInterceptor() {
         LocaleChangeInterceptor lci = new LocaleChangeInterceptor();
         lci.setParamName("lang");
         return lci;
     }
+
     
    
    
@@ -93,6 +96,8 @@ public class RegistarsiteApplication extends SpringBootServletInitializer implem
         registry.addInterceptor(CourseInterceptor()).addPathPatterns("/courseList/**");        
         
     }
+
 	
 	}
-    /*This is a place for interceptor*/
+ 
+

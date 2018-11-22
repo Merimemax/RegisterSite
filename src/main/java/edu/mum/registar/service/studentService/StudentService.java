@@ -6,14 +6,18 @@ import java.util.List;
 
 public interface StudentService {
 
-     Student findStudentByEmail(String email);
+    Student findStudentByEmail(String email);
 
-     List<Student> findAllStudent();
-
-     List<Student> findAllStudentByFacultyId(String faculty_id);
-
-     void save(Student student);
+    List<Student> findAllStudent();
 
 
+    Student findStudentById(long id);
 
+    List<Student> findAllStudentByFacultyId(String faculty_id);
+
+
+    void save(Student student);
+
+//
+//    Student findStudentById(long id);
 }
