@@ -46,31 +46,26 @@
     <%--<a class="btn btn-info" id="enrolledCourse" href="/student/enrolledcourses?id='${student.id}'">View Enrolled Courses</a>--%>
 
 </div>
-
 <section id="enrolled" style="display: block">
     <h3>Enrolled Courses</h3>
-    <%--<c:forEach items="${student.enrolledCourse}" var="enrolled" >--%>
-        <%--<p>${enrolled.id}</p>--%>
-    <%--</c:forEach>--%>
     <table id="courseList" class="table table-bordered">
         <thead>
         <tr>
-            <th scope="col">Section No</th>
-            <th scope="col">Professor</th>
-            <th scope="col">Course</th>
+            <th scope="col">Course Id</th>
             <th scope="col">Course Code</th>
-            <th scope="col">credit</th>
+            <th scope="col">Course Name</th>
+            <th scope="col">Course Credit</th>
         </tr>
         </thead>
         <tbody>
+<c:forEach items="${course}" var="enrolled" >
         <tr>
-            <td>${section.id}</td>
-            <td>${section.proffessor.firstName}</td>
-            <td>${section.course.courseName}</td>
-            <td>${section.course.courseCode}</td>
-            <td>${section.course.credit}</td>
-
+            <td>${enrolled.id}</td>
+            <td>${enrolled.courseCode}</td>
+            <td>${enrolled.courseName}</td>
+            <td>${enrolled.credit}</td>
         </tr>
+</c:forEach>
         </tbody>
     </table>
 </section>
