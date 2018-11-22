@@ -16,41 +16,46 @@
 
 </head>
 <body>
-
 <h2>List of students</h2>
 
-<table class="table">
-    <thead class="thead-light">
-    <tr>
-        <th scope="col">Id</th>
-        <th scope="col">First Name</th>
-        <th scope="col">Last Name</th>
-        <th scope="col">Entry Date</th>
-        <th scope="col">Registration Number</th>
-        <th scope="col">Details</th>
-        <th scope="col">Action</th>
-    </tr>
-    </thead>
-    <tbody>
+<%--<table class="table">--%>
+    <%--<thead class="thead-light">--%>
+    <%--<tr>--%>
+        <%--<th scope="col">Id</th>--%>
+        <%--<th scope="col">First Name</th>--%>
+        <%--<th scope="col">Last Name</th>--%>
+        <%--<th scope="col">Entry Date</th>--%>
+        <%--<th scope="col">Registration Number</th>--%>
+        <%--<th scope="col">Details</th>--%>
+        <%--<th scope="col">Action</th>--%>
+    <%--</tr>--%>
+    <%--</thead>--%>
+    <%--<tbody>--%>
 
 
-        <c:forEach items="${students}" var="stu">
-        <tr>
-            <td><c:out value="${stu.id}"/></td>
-            <td><c:out value="${stu.firstName}"/></td>
-            <td><c:out value="${stu.lastName}"/></td>
-            <td><c:out value="${stu.entryDate}"/></td>
-            <td><c:out value="${stu.registrationNumber}"/></td>
+        <%--<c:forEach items="${students}" var="stu">--%>
+        <%--<tr>--%>
+            <%--<td><c:out value="${stu.id}"/></td>--%>
+            <%--<td><c:out value="${stu.firstName}"/></td>--%>
+            <%--<td><c:out value="${stu.lastName}"/></td>--%>
+            <%--<td><c:out value="${stu.entryDate}"/></td>--%>
+            <%--<td><c:out value="${stu.registrationNumber}"/></td>--%>
 
-            <div class="btn-group-vertical" id="side">
-                <td> <button class=" btn btn-info" onclick="showDetails('${stu.id}')">Details</button></td>
-                    <td> <button class=" btn btn-info" onclick="showDetails('${stu.id}')" >Delete</button></td>
-            </div>
+            <%--<div class="btn-group-vertical" id="side">--%>
+                <%--<td> <a  href="/faculty/details?id=${stu.id}" id="detail" class="btn btn-info">Details</a></td>--%>
+                <%--<td> <button class=" btn btn-info">Delete</button></td>--%>
 
-    </tr>
-    </c:forEach>
 
-    </tbody>
-</table>
+                <%--&lt;%&ndash;<td> <button class=" btn btn-info" onclick="showDetails('${stu.id}')">Details</button></td>&ndash;%&gt;--%>
+                <%--&lt;%&ndash;<td> <button class=" btn btn-info" onclick="showDetails('${stu.id}')">Delete</button></td>&ndash;%&gt;--%>
+            <%--</div>--%>
+
+
+    <%--</tr>--%>
+    <%--</c:forEach>--%>
+
+    <%--</tbody>--%>
+<%--</table>--%>
+
 </body>
 </html>

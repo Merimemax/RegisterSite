@@ -33,13 +33,17 @@ public class RegistarsiteApplication implements WebMvcConfigurer {
         SpringApplication.run(RegistarsiteApplication.class, args);
     }
 
-    
+
     /*This is a place for Internalization message*/
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(localeChangeInterceptor()); //this is for language
+
         registry.addInterceptor(CourseInterceptor()).addPathPatterns("/showFormForUpdate/**");        
         
+
+
+
     }
 
     @Bean
@@ -56,10 +60,10 @@ public class RegistarsiteApplication implements WebMvcConfigurer {
         return lci;
     }
 
-    
-   
-   
-    
+
+
+
+
     /**********This is configuration for  Custom Annotaion  validation and error message files**********/
 
     @Bean
@@ -69,19 +73,19 @@ public class RegistarsiteApplication implements WebMvcConfigurer {
 		resource.setBasenames("messages", "errorMessages");
 		return resource;
 	}
-	
+
 	@Bean(name="validator")
 	public LocalValidatorFactoryBean validator() {
 		LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();
 		bean.setValidationMessageSource(messageSource());
 		return bean;
 	}
-	
+
 	@Override
 	public Validator getValidator() {
 		return validator();
 	}
-	
+
 
 	/*This is a place for interceptor*/
 	@Override
@@ -90,15 +94,15 @@ public class RegistarsiteApplication implements WebMvcConfigurer {
        urlPathHelper.setRemoveSemicolonContent(false);
        configurer.setUrlPathHelper(urlPathHelper);
     }
-    
+
     @Bean
     CourseInterceptor CourseInterceptor() {
          return new CourseInterceptor();
     }
 
-  
 
-	
+
+
 	}
- 
+
 

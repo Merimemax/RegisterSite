@@ -13,7 +13,7 @@ public interface StudentService {
 
     Student findStudentById(long id);
 
-    List<Student> findAllStudentByFacultyId(String faculty_id);
+    List<Student> findAllStudentByFacultyId(long faculty_id);
 
 
     void save(Student student);
