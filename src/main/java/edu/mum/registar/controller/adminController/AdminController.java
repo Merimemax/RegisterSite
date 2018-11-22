@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -88,7 +89,14 @@ public class AdminController {
 	}
 	
 	@PostMapping("/section/add/{blockid}")
-	public String saveSectionToBlock(@Valid Section section,@PathVariable("blockid") long id,Model model,RedirectAttributes redirectAttribute) {
+	public String saveSectionToBlock(@Valid @ModelAttribute("newSection") Section section,BindingResult result,
+			@PathVariable("blockid") long id,Model model,RedirectAttributes redirectAttribute) {
+		if(result.hasErrors()) {
+			model.addAttribute("blockid",id);
+			model.addAttribute("courses", courseService.getcourses());
+			model.addAttribute("professors", facultyService.findAllfaculty());
+			return "/admin/addSection";
+		}
 		Block block=blockService.getOne(id);
 		
 		Course course=courseService.getcoursesbyID(section.getCourse().getId());
@@ -96,6 +104,7 @@ public class AdminController {
 		
 		section.setCourse(course);
 		section.setProffessor(faculty);
+		sectionService.save(section);
 		block.addSection(section);
 		blockService.save(block);
 
@@ -114,7 +123,7 @@ public class AdminController {
 		model.addAttribute("blockid",blockid);
 		model.addAttribute("courses", courseService.getcourses());
 		model.addAttribute("professors", facultyService.findAllfaculty());
-		return "/admin/addSection";
+		return "/admin/editSection";
 		
 	}
 	
